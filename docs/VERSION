@@ -1,0 +1,20 @@
+Global Command System (GCS)
+Version: 1.0-Enhanced
+Build Date: 2026-02-12
+License: MIT
+
+Features:
+- Dynamic command system (13-19 handlers)
+- Permission-based access control
+- Modular architecture
+- Backup and restore system
+- Performance monitoring
+- Advanced error handling
+- Built-in utility handlers
+
+Minecraft Compatibility:
+- Pack Format: 61
+- Supported Formats: 48-61
+- Requires: Minecraft 1.21+
+
+For more information, see README.md

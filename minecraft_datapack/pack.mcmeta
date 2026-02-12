@@ -1,0 +1,15 @@
+{
+  "pack": {
+    "pack_format": 61,
+    "supported_formats": {
+      "min_inclusive": 48,
+      "max_inclusive": 61
+    },
+    "description": "Global Dynamic Command System v1.0\nMax 19 Handlers | Modular Architecture"
+  },
+  "features": {
+    "enabled": [
+      "minecraft:vanilla"
+    ]
+  }
+}
