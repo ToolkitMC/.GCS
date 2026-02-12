@@ -11,6 +11,9 @@ scoreboard objectives add gcs.auth dummy {"text":"Yetki Seviyesi","color":"aqua"
 scoreboard objectives add gcs.hid dummy {"text":"Handler ID","color":"white"}
 scoreboard objectives add gcs.count dummy {"text":"Sayaç","color":"gray"}
 scoreboard objectives add gcs.perf dummy {"text":"Performans","color":"green"}
+scoreboard objectives add gcs.aura dummy {"text":"Partikül Aura","color":"light_purple"}
+scoreboard objectives add gcs.aura.timer dummy {"text":"Aura Timer","color":"dark_purple"}
+scoreboard objectives add gcs.temp dummy {"text":"Geçici Değişken","color":"dark_gray"}
 
 # Sabitler
 scoreboard players set #max gcs.count 19
