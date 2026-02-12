@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    "gcs:admin/show_last_update"
+  ]
+}

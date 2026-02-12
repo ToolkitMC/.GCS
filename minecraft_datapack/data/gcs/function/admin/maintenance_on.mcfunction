@@ -1,3 +1,5 @@
+function #gcs:maintenance_on
+
 tellraw @s ""
 tellraw @s [{"text":"[🔧] ","color":"gold","bold":true},{"text":"BAKIM MODU AKTİF","color":"red","bold":true}]
 tellraw @s ""

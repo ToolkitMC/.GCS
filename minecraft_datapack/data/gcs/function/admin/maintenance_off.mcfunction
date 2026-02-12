@@ -1,3 +1,5 @@
+function #gcs:maintenance_off
+
 tellraw @s ""
 tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"BAKIM MODU KAPALI","color":"green","bold":true}]
 tellraw @s ""
