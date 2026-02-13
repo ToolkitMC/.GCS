@@ -22,7 +22,7 @@
 
 ### Adım 1: Datapack'i Yerleştir
 ```
-saves/[Dünya_Adı]/datapacks/global_command_system/
+saves/[Dünya_Adı]/datapacks/global_command_system.zip
 ```
 
 ### Adım 2: Dünyayı Yükle
