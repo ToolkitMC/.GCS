@@ -56,3 +56,5 @@ resourcepack/build/
 pack.info
 *.template
 pack.ajmeta
+*.jar
+*.dat
