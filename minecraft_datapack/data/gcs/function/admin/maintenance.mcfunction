@@ -8,13 +8,9 @@ execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","col
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
 execute unless score @s gcs.auth matches 3.. run return 0
 
-# Bakım modu durumunu al/oluştur
-execute unless data storage gcs:db metadata.maintenance run data modify storage gcs:db metadata.maintenance set value 0b
+# Aç / Kapat
+$scoreboard players set #mm gcs.temp $(action)
 
-# Toggle
-execute if data storage gcs:db metadata{maintenance:0b} run data modify storage gcs:db metadata.maintenance set value 1b
-execute if data storage gcs:db metadata{maintenance:1b} run data modify storage gcs:db metadata.maintenance set value 0b
-
-# Yeni durumu kontrol et
-execute if data storage gcs:db metadata{maintenance:1b} run function gcs:admin/maintenance_on
-execute if data storage gcs:db metadata{maintenance:0b} run function gcs:admin/maintenance_off
+# Yeni duruma göre fonksiyon çağır
+execute if score #mm gcs.temp matches 2 run function gcs:admin/maintenance_on
+execute if score #mm gcs.temp matches 1 run function gcs:admin/maintenance_off
