@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "ui:menu/gcs/main/open",
-      "required": false
-    }
-  ]
-}

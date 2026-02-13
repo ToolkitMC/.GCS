@@ -4,10 +4,6 @@
     {
       "id": "gcs:core/tick",
       "required": false
-    },
-    {
-      "id": "ui:tick",
-      "required": false
     }
   ]
 }
