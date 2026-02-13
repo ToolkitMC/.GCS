@@ -8,6 +8,10 @@ scoreboard objectives remove gcs.hid
 scoreboard objectives remove gcs.count
 scoreboard objectives remove gcs.ui
 scoreboard objectives remove gcs.exec
+scoreboard objectives remove gcs.temp
+scoreboard objectives remove gcs.perf
+scoreboard objectives remove gcs.aura.timer
+scoreboard objectives remove gcs.aura
 
 # Storage'ı temizle
 data modify storage gcs:db metadata set value []

@@ -13,5 +13,5 @@ particle minecraft:enchanted_hit ~ ~0.5 ~ 0.5 0.5 0.5 0.1 20 force
 playsound minecraft:block.ender_chest.open master @s ~ ~ ~ 1.0 1.0
 playsound minecraft:block.portal.travel master @s ~ ~ ~ 0.3 2.0
 
-# Enderchest'i aç (0.5 saniye gecikme ile atmosfer için)
-schedule function gcs:handlers/builtin/_open_enderchest 10t replace
+# Enderchest'i aç
+execute if entity @s run function gcs:handlers/builtin/_do_open_ec

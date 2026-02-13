@@ -5,9 +5,6 @@
 # MIT License
 # ============================================
 
-# Geçici 'Admin' yetkisi ver
-tag @a add gcs.admin
-
 # Scoreboards
 scoreboard objectives add gcs.ui trigger {"text":"GCS Ana Menü","color":"gold"}
 scoreboard objectives add gcs.exec trigger {"text":"Handler Çalıştır","color":"yellow"}
@@ -30,17 +27,10 @@ execute unless data storage gcs:db handlers run function gcs:core/install_defaul
 execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {version:"1.0.2",last_update:"11:36-13.02.2026",maintenance:0b,total_executions:0}
 
 # Welcome message
-tellraw @a[tag=gcs.admin] ""
-tellraw @a[tag=gcs.admin] {"text":"════════════════════════════════","color":"gold","bold":true}
-tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gold"},{"text":"GCS v1.0.2-Enhanced","color":"yellow","bold":true},{"text":" yüklendi!","color":"white"}]
-tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gray"},{"text":"🛡️ Yetki Kontrollü | 🔍 Gelişmiş Arama","color":"aqua"}]
-tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gray"},{"text":"MIT License","color":"dark_gray"}]
-tellraw @a[tag=gcs.admin] {"text":"════════════════════════════════","color":"gold","bold":true}
-tellraw @a[tag=gcs.admin] ""
-
-
-
-
-
-# Geçici 'Admin' yetkisi al
-tag @s remove gcs.admin
+tellraw @a ""
+tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
+tellraw @a [{"text":"  ","color":"gold"},{"text":"GCS v1.0.2-Enhanced","color":"yellow","bold":true},{"text":" yüklendi!","color":"white"}]
+tellraw @a [{"text":"  ","color":"gray"},{"text":"🛡️ Yetki Kontrollü | 🔍 Gelişmiş Arama","color":"aqua"}]
+tellraw @a [{"text":"  ","color":"gray"},{"text":"MIT License","color":"dark_gray"}]
+tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
+tellraw @a
