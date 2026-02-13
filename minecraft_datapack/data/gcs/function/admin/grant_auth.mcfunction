@@ -3,6 +3,9 @@
 # Yetki Seviyesi: 3 (Admin)
 # ============================================
 
+# Oyuncu kontrolü
+$execute unless entity @p[name=$(player),limit=1] run return 0
+
 # Yetki kontrolü
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Admin (Seviye 3)","color":"red","bold":true},{"text":" yetkisi gereklidir!","color":"red"}]
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
