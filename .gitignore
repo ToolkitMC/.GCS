@@ -32,6 +32,7 @@ reports/
 ### WORLD / SERVER TEST DATA ###
 # Singleplayer test world
 saves/
+world/
 
 # Server test folders
 server/
@@ -50,3 +51,8 @@ config.local.json
 ### OPTIONAL ###
 # If you export resourcepack + datapack together
 resourcepack/build/
+
+# Other
+pack.info
+*.template
+pack.ajmeta
