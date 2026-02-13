@@ -5,7 +5,7 @@
       "min_inclusive": 48,
       "max_inclusive": 61
     },
-    "description": "Global Dynamic Command System v1.0\nMax 19 Handlers | Modular Architecture"
+    "description": "Global Command System v1.0.2-Enhanced\n🛡️ Yetki Kontrolü | 🔍 Gelişmiş Arama | Max 19 Handlers"
   },
   "features": {
     "enabled": [

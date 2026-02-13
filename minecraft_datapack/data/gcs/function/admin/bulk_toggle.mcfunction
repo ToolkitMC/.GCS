@@ -1,13 +1,30 @@
-# Bulk enable/disable handlers
-# Start scorebord:
-scoreboard players set @s[scores={gcs.toggle=0}] gcs.toggle 1
-scoreboard players set @s[scores={gcs.toggle=1}] gcs.toggle 0
+# ============================================
+# GCS - Toplu Handler Aktif/Pasif
+# Yetki Seviyesi: 3 (Admin)
+# ============================================
 
-#
-execute if score @s gcs.toggle matches 0 run data modify storage gcs:db handlers[].enabled set value 1b
-execute if score @s gcs.toggle matches 1 run data modify storage gcs:db handlers[].enabled set value 0b
+# Yetki kontrolü
+execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Admin (Seviye 3)","color":"red","bold":true},{"text":" yetkisi gereklidir!","color":"red"}]
+execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
+execute unless score @s gcs.auth matches 3.. run return 0
 
-tellraw @s ""
-tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"Toplu işlem tamamlandı!","color":"green"}]
-$tellraw @s [{"text":"  └─ ","color":"dark_gray"},{"text":"İşlem: ","color":"gray"},{"text":"$(action)","color":"yellow"}]
-tellraw @s ""
+# Toplu enable/disable handler'lar
+# Kullanım: /function gcs:admin/bulk_toggle {action:"enable"} veya {action:"disable"}
+
+# Action parametresini kontrol et ve uygula
+$execute if entity @s run data modify storage gcs:temp bulk_action set value "$(action)"
+
+# Enable
+execute if data storage gcs:temp {bulk_action:"enable"} run data modify storage gcs:db handlers[].enabled set value 1b
+execute if data storage gcs:temp {bulk_action:"enable"} run tellraw @s ""
+execute if data storage gcs:temp {bulk_action:"enable"} run tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"Tüm handler'lar aktifleştirildi!","color":"green"}]
+execute if data storage gcs:temp {bulk_action:"enable"} run tellraw @s ""
+
+# Disable
+execute if data storage gcs:temp {bulk_action:"disable"} run data modify storage gcs:db handlers[].enabled set value 0b
+execute if data storage gcs:temp {bulk_action:"disable"} run tellraw @s ""
+execute if data storage gcs:temp {bulk_action:"disable"} run tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"Tüm handler'lar pasifleştirildi!","color":"green"}]
+execute if data storage gcs:temp {bulk_action:"disable"} run tellraw @s ""
+
+# Temizlik
+data remove storage gcs:temp bulk_action

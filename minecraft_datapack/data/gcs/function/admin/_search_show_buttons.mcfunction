@@ -1,0 +1,4 @@
+# Arama sonuçları için işlem butonlarını göster
+# Makro değişkenleri burada düzgün çalışır
+
+$tellraw @s [{"text":"└─ ","color":"dark_gray"},{"text":"[▶ Çalıştır]","color":"green","clickEvent":{"action":"suggest_command","value":"/trigger gcs.exec set $(hid)"},"hoverEvent":{"action":"show_text","value":"Handler'ı çalıştır"}},{"text":" ","color":"white"},{"text":"[✏ Düzenle]","color":"gold","clickEvent":{"action":"suggest_command","value":"/function gcs:admin/edit_handler {hid:$(hid),name:\"$(name)\",label:\"$(label)\",description:\"$(description)\",command:\"$(command)\",auth_level:$(auth_level),category:\"$(category)\"}"},"hoverEvent":{"action":"show_text","value":"Handler'ı düzenle"}},{"text":" ","color":"white"},{"text":"[🔄 Aç/Kapat]","color":"light_purple","clickEvent":{"action":"run_command","value":"/function gcs:admin/toggle_handler {hid:$(hid)}"},"hoverEvent":{"action":"show_text","value":"Aktif/Pasif yap"}}]

@@ -1,8 +1,12 @@
 # ============================================
-# Global Command System (GCS) v1.0
+# Global Command System (GCS) v1.0.2-Enhanced
 # © 2026 - Handler Limit: 13-19
+# 🛡️ Yetki Kontrollü | 🔍 Gelişmiş Arama
 # MIT License
 # ============================================
+
+# Geçici 'Admin' yetkisi ver
+tag @a add gcs.admin
 
 # Scoreboards
 scoreboard objectives add gcs.ui trigger {"text":"GCS Ana Menü","color":"gold"}
@@ -23,12 +27,20 @@ scoreboard players set #min gcs.count 13
 execute unless data storage gcs:db handlers run function gcs:core/install_defaults
 
 # Metadata
-execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {version:"1.0.1",last_update:"22:39-12.02.2026",maintenance:0b,total_executions:0}
+execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {version:"1.0.2",last_update:"11:36-13.02.2026",maintenance:0b,total_executions:0}
 
 # Welcome message
 tellraw @a[tag=gcs.admin] ""
-tellraw @a[tag=gcs.admin] {"text":"═══════════════════════════════════════","color":"gold","bold":true}
-tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gold"},{"text":"GCS v1.0","color":"yellow","bold":true},{"text":" yüklendi!","color":"white"}]
+tellraw @a[tag=gcs.admin] {"text":"════════════════════════════════","color":"gold","bold":true}
+tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gold"},{"text":"GCS v1.0.2-Enhanced","color":"yellow","bold":true},{"text":" yüklendi!","color":"white"}]
+tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gray"},{"text":"🛡️ Yetki Kontrollü | 🔍 Gelişmiş Arama","color":"aqua"}]
 tellraw @a[tag=gcs.admin] [{"text":"  ","color":"gray"},{"text":"MIT License","color":"dark_gray"}]
-tellraw @a[tag=gcs.admin] {"text":"═══════════════════════════════════════","color":"gold","bold":true}
+tellraw @a[tag=gcs.admin] {"text":"════════════════════════════════","color":"gold","bold":true}
 tellraw @a[tag=gcs.admin] ""
+
+
+
+
+
+# Geçici 'Admin' yetkisi al
+tag @s remove gcs.admin

@@ -1,3 +1,13 @@
+# ============================================
+# GCS - Handler Aktif/Pasif
+# Yetki Seviyesi: 2 (Moderatör+)
+# ============================================
+
+# Yetki kontrolü
+execute unless score @s gcs.auth matches 2.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Moderatör (Seviye 2)","color":"gold"},{"text":" yetkisi gereklidir!","color":"red"}]
+execute unless score @s gcs.auth matches 2.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
+execute unless score @s gcs.auth matches 2.. run return 0
+
 # Handler var mı kontrol et
 $execute store success score #found gcs.count if data storage gcs:db handlers[{hid:$(hid)}]
 

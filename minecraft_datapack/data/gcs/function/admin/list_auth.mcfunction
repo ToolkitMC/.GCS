@@ -1,3 +1,13 @@
+# ============================================
+# GCS - Yetkili Oyuncu Listesi
+# Yetki Seviyesi: 2 (Moderatör+)
+# ============================================
+
+# Yetki kontrolü
+execute unless score @s gcs.auth matches 2.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Moderatör (Seviye 2)","color":"gold"},{"text":" yetkisi gereklidir!","color":"red"}]
+execute unless score @s gcs.auth matches 2.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
+execute unless score @s gcs.auth matches 2.. run return 0
+
 # Başlık
 tellraw @s ""
 tellraw @s {"text":"═══════════════════════════════════════","color":"gold","bold":true}
