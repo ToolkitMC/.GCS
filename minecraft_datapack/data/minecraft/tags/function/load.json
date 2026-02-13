@@ -4,6 +4,10 @@
     {
       "id": "gcs:core/load",
       "required": false
+    },
+    {
+      "id": "ui:load",
+      "required": false
     }
   ]
 }
