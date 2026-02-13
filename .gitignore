@@ -58,3 +58,9 @@ pack.info
 pack.ajmeta
 *.jar
 *.dat
+usercache.json
+*.dat_old
+servers.dat
+servers.dat_old
+options.txt
+test.txt
