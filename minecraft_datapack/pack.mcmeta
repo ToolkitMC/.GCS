@@ -6,10 +6,5 @@
       "max_inclusive": 61
     },
     "description": "Global Command System v1.0.2-Enhanced\n🛡️ Yetki Kontrolü | 🔍 Gelişmiş Arama | Max 19 Handlers"
-  },
-  "features": {
-    "enabled": [
-      "minecraft:vanilla"
-    ]
   }
 }
