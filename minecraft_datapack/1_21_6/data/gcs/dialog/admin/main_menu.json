@@ -1,0 +1,221 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "⚙ Global Command System",
+    "color": "gold",
+    "bold": true
+  },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": {
+      "text": "Yönetim paneli — bir işlem seçin.",
+      "color": "gray",
+      "italic": true
+    }
+  },
+  "columns": 2,
+  "button_width": 150,
+  "exit_action": {
+    "label": {
+      "text": "✖ Kapat",
+      "color": "red"
+    }
+  },
+  "actions": [
+    {
+      "label": {
+        "text": "⚡ Komut Çalıştır",
+        "color": "yellow",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Handler'ları kategoriye göre çalıştır",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:exec/menu"
+      }
+    },
+    {
+      "label": {
+        "text": "➕ Handler Ekle",
+        "color": "green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/add_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "📋 Handler Listesi",
+        "color": "yellow",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Tüm handler'ları göster",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:admin/list_handlers"
+      }
+    },
+    {
+      "label": {
+        "text": "🔍 Handler Ara",
+        "color": "aqua",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Moderatör (Lv2)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/search_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "✏ Handler Düzenle",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/edit_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "❌ Handler Sil",
+        "color": "red",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/delete_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "🔄 Aç/Kapat",
+        "color": "light_purple",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Handler aktif/pasif yap\nGerekli: Moderatör (Lv2)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/toggle_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "👤 Yetki Ver",
+        "color": "aqua",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/grant_auth_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "👥 Yetki Listesi",
+        "color": "green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Gerekli: Moderatör (Lv2)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:admin/list_auth"
+      }
+    },
+    {
+      "label": {
+        "text": "📊 İstatistikler",
+        "color": "yellow",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Detaylı sistem istatistikleri\nGerekli: Moderatör (Lv2)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:admin/detailed_stats"
+      }
+    },
+    {
+      "label": {
+        "text": "💾 Export/Backup",
+        "color": "aqua",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Handler'ları dışa aktar\nGerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:admin/export"
+      }
+    },
+    {
+      "label": {
+        "text": "🔧 Bakım Modu",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Bakım modunu aç/kapat\nGerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/maintenance_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "✅ Yürüt",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Handler Yürüt",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:exec/menu"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:multi_action",
+  "title": { "text": "❌ Handler Sil", "color": "red", "bold": true },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "Silmek istediğin handler'ın ID'sini gir.\nBu işlem geri alınamaz!", "color": "gray" }
+  },
+  "inputs": [
+    {
+      "type": "minecraft:text",
+      "key": "hid",
+      "label": { "text": "Handler ID", "color": "red" },
+      "initial": "1",
+      "max_length": 4
+    }
+  ],
+  "columns": 2,
+  "button_width": 150,
+  "exit_action": {
+    "label": { "text": "◀ Geri", "color": "gray" },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"
+    }
+  },
+  "actions": [
+    {
+      "label": { "text": "🗑 Sil", "color": "red", "bold": true },
+      "action": {
+        "type": "minecraft:dynamic/run_command",
+        "template": "function gcs:admin/delete_handler {hid:$(hid)}"
+      }
+    }
+  ]
+}

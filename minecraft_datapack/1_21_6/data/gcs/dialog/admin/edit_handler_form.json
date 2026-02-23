@@ -1,0 +1,87 @@
+{
+  "type": "minecraft:multi_action",
+  "title": { "text": "✏ Handler Düzenle", "color": "gold", "bold": true },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "Mevcut bir handler'ı düzenle.", "color": "gray", "italic": true }
+  },
+  "inputs": [
+    {
+      "type": "minecraft:text",
+      "key": "hid",
+      "label": { "text": "Handler ID (hid)", "color": "aqua" },
+      "initial": "1",
+      "max_length": 4
+    },
+    {
+      "type": "minecraft:text",
+      "key": "name",
+      "label": { "text": "Yeni İsim", "color": "white" },
+      "initial": "komut_adi",
+      "max_length": 32
+    },
+    {
+      "type": "minecraft:text",
+      "key": "label",
+      "label": { "text": "Yeni Görünen Ad", "color": "white" },
+      "initial": "Komut Adı",
+      "max_length": 32
+    },
+    {
+      "type": "minecraft:text",
+      "key": "description",
+      "label": { "text": "Yeni Açıklama", "color": "white" },
+      "initial": "Açıklama",
+      "max_length": 64
+    },
+    {
+      "type": "minecraft:text",
+      "key": "command",
+      "label": { "text": "Yeni Komut", "color": "white" },
+      "initial": "say merhaba",
+      "max_length": 256
+    },
+    {
+      "type": "minecraft:single_option",
+      "key": "auth_level",
+      "label": { "text": "Yetki Seviyesi", "color": "white" },
+      "options": [
+        { "id": "1", "display": { "text": "1 - Kullanıcı", "color": "green" } },
+        { "id": "2", "display": { "text": "2 - Moderatör", "color": "gold" } },
+        { "id": "3", "display": { "text": "3 - Admin",     "color": "red"  } }
+      ],
+      "initial": "1"
+    },
+    {
+      "type": "minecraft:single_option",
+      "key": "category",
+      "label": { "text": "Kategori", "color": "white" },
+      "options": [
+        { "id": "utility",  "display": { "text": "🛠 Utility",  "color": "white" } },
+        { "id": "teleport", "display": { "text": "🚀 Teleport", "color": "aqua"  } },
+        { "id": "ability",  "display": { "text": "⚡ Ability",  "color": "light_purple" } },
+        { "id": "world",    "display": { "text": "🌍 World",    "color": "green" } },
+        { "id": "admin",    "display": { "text": "👑 Admin",    "color": "red"   } }
+      ],
+      "initial": "utility"
+    }
+  ],
+  "columns": 2,
+  "button_width": 150,
+  "exit_action": {
+    "label": { "text": "◀ Geri", "color": "gray" },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"
+    }
+  },
+  "actions": [
+    {
+      "label": { "text": "✔ Güncelle", "color": "gold", "bold": true },
+      "action": {
+        "type": "minecraft:dynamic/run_command",
+        "template": "function gcs:admin/edit_handler {hid:$(hid),name:\"$(name)\",label:\"$(label)\",description:\"$(description)\",command:\"$(command)\",auth_level:$(auth_level),category:\"$(category)\"}"
+      }
+    }
+  ]
+}

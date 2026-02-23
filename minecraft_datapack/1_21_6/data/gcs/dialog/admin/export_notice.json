@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {"text": "💾 Export/Backup", "color": "aqua", "bold": true},
+  "body": {"type": "minecraft:plain_message", "contents": {"text": "Export bilgileri chat'e yazdırılacak.", "color": "gray"}},
+  "yes": {
+    "label": {"text": "✔ Göster", "color": "green"},
+    "action": {"type": "minecraft:run_command", "command": "function gcs:admin/export"}
+  },
+  "no": {
+    "label": {"text": "◀ Geri", "color": "gray"},
+    "action": {"type": "minecraft:run_command", "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"}
+  }
+}

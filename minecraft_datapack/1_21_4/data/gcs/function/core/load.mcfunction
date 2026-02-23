@@ -13,7 +13,7 @@ scoreboard players set #min gcs.count 13
 
 execute unless data storage gcs:db handlers run function gcs:core/install_defaults
 execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {last_update:"",maintenance:0b,total_executions:0}
-data modify storage gcs:temp metadata.version set value "1.0.5-Fix"
+data modify storage gcs:temp metadata.version set value "1.0.6"
 
 tellraw @a ""
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
