@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {"text": "👥 Yetki Listesi", "color": "green", "bold": true},
+  "body": {"type": "minecraft:plain_message", "contents": {"text": "Yetkili oyuncular chat'e yazdırılacak.", "color": "gray"}},
+  "yes": {
+    "label": {"text": "✔ Göster", "color": "green"},
+    "action": {"type": "minecraft:run_command", "command": "function gcs:admin/list_auth"}
+  },
+  "no": {
+    "label": {"text": "◀ Geri", "color": "gray"},
+    "action": {"type": "minecraft:run_command", "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"}
+  }
+}

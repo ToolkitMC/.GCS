@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:multi_action",
+  "title": { "text": "🔄 Handler Aç/Kapat", "color": "light_purple", "bold": true },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "Handler ID'sini gir ve durumunu değiştir.", "color": "gray", "italic": true }
+  },
+  "inputs": [
+    {
+      "type": "minecraft:text",
+      "key": "hid",
+      "label": { "text": "Handler ID (hid)", "color": "aqua" },
+      "initial": "1",
+      "max_length": 4
+    }
+  ],
+  "columns": 2,
+  "button_width": 150,
+  "exit_action": {
+    "label": { "text": "◀ Geri", "color": "gray" },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"
+    }
+  },
+  "actions": [
+    {
+      "label": { "text": "🔄 Toggle", "color": "light_purple", "bold": true },
+      "action": {
+        "type": "minecraft:dynamic/run_command",
+        "template": "function gcs:admin/toggle_handler {hid:$(hid)}"
+      }
+    }
+  ]
+}

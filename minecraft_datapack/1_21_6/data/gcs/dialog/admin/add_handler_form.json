@@ -1,0 +1,80 @@
+{
+  "type": "minecraft:multi_action",
+  "title": { "text": "➕ Handler Ekle", "color": "green", "bold": true },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "Yeni bir handler oluştur.", "color": "gray", "italic": true }
+  },
+  "inputs": [
+    {
+      "type": "minecraft:text",
+      "key": "name",
+      "label": { "text": "Handler İsmi", "color": "white" },
+      "initial": "komut_adi",
+      "max_length": 32
+    },
+    {
+      "type": "minecraft:text",
+      "key": "label",
+      "label": { "text": "Görünen Ad", "color": "white" },
+      "initial": "Komut Adı",
+      "max_length": 32
+    },
+    {
+      "type": "minecraft:text",
+      "key": "description",
+      "label": { "text": "Açıklama", "color": "white" },
+      "initial": "Açıklama buraya",
+      "max_length": 64
+    },
+    {
+      "type": "minecraft:text",
+      "key": "command",
+      "label": { "text": "Komut", "color": "white" },
+      "initial": "say merhaba",
+      "max_length": 256
+    },
+    {
+      "type": "minecraft:single_option",
+      "key": "auth_level",
+      "label": { "text": "Yetki Seviyesi", "color": "white" },
+      "options": [
+        { "id": "1", "display": { "text": "1 - Kullanıcı", "color": "green" } },
+        { "id": "2", "display": { "text": "2 - Moderatör", "color": "gold" } },
+        { "id": "3", "display": { "text": "3 - Admin", "color": "red" } }
+      ],
+      "initial": "1"
+    },
+    {
+      "type": "minecraft:single_option",
+      "key": "category",
+      "label": { "text": "Kategori", "color": "white" },
+      "options": [
+        { "id": "utility",  "display": { "text": "🛠 Utility",  "color": "white" } },
+        { "id": "teleport", "display": { "text": "🚀 Teleport", "color": "aqua"  } },
+        { "id": "ability",  "display": { "text": "⚡ Ability",  "color": "light_purple" } },
+        { "id": "world",    "display": { "text": "🌍 World",    "color": "green" } },
+        { "id": "admin",    "display": { "text": "👑 Admin",    "color": "red"   } }
+      ],
+      "initial": "utility"
+    }
+  ],
+  "columns": 2,
+  "button_width": 150,
+  "exit_action": {
+    "label": { "text": "◀ Geri", "color": "gray" },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"
+    }
+  },
+  "actions": [
+    {
+      "label": { "text": "✔ Ekle", "color": "green", "bold": true },
+      "action": {
+        "type": "minecraft:dynamic/run_command",
+        "template": "function gcs:admin/add_handler {name:\"$(name)\",label:\"$(label)\",description:\"$(description)\",command:\"$(command)\",auth_level:$(auth_level),category:\"$(category)\"}"
+      }
+    }
+  ]
+}

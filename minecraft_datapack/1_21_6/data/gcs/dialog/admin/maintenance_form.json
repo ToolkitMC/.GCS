@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:confirmation",
+  "title": { "text": "🔧 Bakım Modu", "color": "gold", "bold": true },
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "Bakım modunu açmak için 'Aç', kapatmak için 'Kapat' seç.", "color": "gray" }
+  },
+  "yes": {
+    "label": { "text": "🔧 Bakımı Aç", "color": "red", "bold": true },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:admin/maintenance {action:2}"
+    }
+  },
+  "no": {
+    "label": { "text": "✔ Bakımı Kapat", "color": "green" },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "function gcs:admin/maintenance {action:1}"
+    }
+  }
+}
