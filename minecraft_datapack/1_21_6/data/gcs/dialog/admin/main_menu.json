@@ -201,21 +201,6 @@
         "type": "minecraft:run_command",
         "command": "function gcs:ui/show {ui:\"gcs:admin/maintenance_form\"}"
       }
-    },
-    {
-      "label": {
-        "text": "✅ Yürüt",
-        "color": "gold",
-        "bold": true
-      },
-      "tooltip": {
-        "text": "Handler Yürüt",
-        "color": "gray"
-      },
-      "action": {
-        "type": "minecraft:run_command",
-        "command": "function gcs:exec/menu"
-      }
     }
   ]
 }
