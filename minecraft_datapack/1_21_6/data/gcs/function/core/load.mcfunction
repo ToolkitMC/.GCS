@@ -11,6 +11,7 @@ scoreboard objectives add gcs.perf dummy {"text":"Performans","color":"green"}
 scoreboard objectives add gcs.aura dummy {"text":"Partikül Aura","color":"light_purple"}
 scoreboard objectives add gcs.aura.timer dummy {"text":"Aura Timer","color":"dark_purple"}
 scoreboard objectives add gcs.temp dummy {"text":"Geçici Değişken","color":"dark_gray"}
+scoreboard objectives add gcs.undo trigger {"text":"Geri Al","color":"red"}
 
 scoreboard players set #max gcs.count 50
 scoreboard players set #min gcs.count 50
@@ -24,7 +25,7 @@ execute unless data storage gcs:waypoints points run data modify storage gcs:way
 scoreboard objectives add gcs.back.x dummy
 scoreboard objectives add gcs.back.y dummy
 scoreboard objectives add gcs.back.z dummy
-data modify storage gcs:temp metadata.version set value "2.1.4"
+data modify storage gcs:temp metadata.version set value "3.0.1"
 
 
 data modify storage gcs:db metadata.loaded set value 1b

@@ -1,5 +1,5 @@
 # ═══════════════════════════════════════════════════════════
-# GCS Enhanced Messaging System v2.0
+# GCS Enhanced Messaging System v3.0.1
 # Gelişmiş mesajlaşma, ses ve partikül efektleri
 # ═══════════════════════════════════════════════════════════
 

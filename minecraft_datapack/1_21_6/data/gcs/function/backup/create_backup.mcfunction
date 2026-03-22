@@ -1,9 +1,7 @@
-# Create backup of current configuration
-$data modify storage gcs:backup/$(timestamp) handlers set from storage gcs:db handlers
-$data modify storage gcs:backup/$(timestamp) metadata set from storage gcs:db metadata
-$data modify storage gcs:backup timestamp set value "$(timestamp)"
-
-tellraw @s ""
-tellraw @s [{"text":"[💾] ","color":"aqua","bold":true},{"text":"Yedek oluşturuldu!","color":"green"}]
-$tellraw @s [{"text":"  └─ ","color":"dark_gray"},{"text":"Zaman: ","color":"gray"},{"text":"$(timestamp)","color":"white"}]
-tellraw @s ""
+# Her destructive işlemden önce otomatik çağrılır
+# Son 1 snapshot tutar — gcs:backup snapshot
+data modify storage gcs:backup snapshot.handlers set from storage gcs:db handlers
+data modify storage gcs:backup snapshot.metadata set from storage gcs:db metadata
+data modify storage gcs:backup snapshot.toggle_states set from storage gcs:db toggle_states
+data modify storage gcs:backup snapshot.waypoints set from storage gcs:waypoints points
+data modify storage gcs:backup has_snapshot set value 1b

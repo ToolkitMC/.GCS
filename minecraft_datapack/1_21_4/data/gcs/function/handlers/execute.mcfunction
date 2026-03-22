@@ -12,10 +12,10 @@ execute if score @s gcs.auth < #required_auth gcs.count run return fail
 
 $function gcs:exec/_record_recent {hid:$(hid)}
 
-# Çok komutlu handler
-execute if data storage gcs:temp current_handler.commands run function gcs:handlers/execute_multi
+# Çok komutlu handler — ayrı fonksiyona yönlendir (return ile çık)
+execute if data storage gcs:temp current_handler.commands run return run function gcs:handlers/execute_multi
 
 # Tek komutlu handler
-execute unless data storage gcs:temp current_handler.commands run function gcs:handlers/run_command with storage gcs:temp current_handler
-execute unless data storage gcs:temp current_handler.commands run function gcs:handlers/success_message with storage gcs:temp current_handler
-execute unless data storage gcs:temp current_handler.commands run function gcs:handlers/_cleanup
+function gcs:handlers/run_command with storage gcs:temp current_handler
+function gcs:handlers/success_message with storage gcs:temp current_handler
+function gcs:handlers/_cleanup

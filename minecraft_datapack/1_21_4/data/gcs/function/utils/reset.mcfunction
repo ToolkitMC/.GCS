@@ -1,3 +1,4 @@
+function gcs:backup/create_backup
 # UYARI: Bu fonksiyon tüm GCS verilerini siler!
 
 tellraw @s [{"text":"[!!!] ","color":"dark_red","bold":true},{"text":"SİSTEM SIFIRLANIYOR...","color":"red","bold":true}]
@@ -14,12 +15,14 @@ scoreboard objectives remove gcs.aura.timer
 scoreboard objectives remove gcs.aura
 
 # Storage'ı temizle
-data modify storage gcs:db metadata set value []
-data modify storage gcs:db handlers set value []
+data remove storage gcs:db metadata
+data remove storage gcs:db handlers
+data remove storage gcs:db toggle_states
+data remove storage gcs:temp metadata
 
 tellraw @s ""
 tellraw @s [{"text":"[✓] ","color":"green"},{"text":"Sistem başarıyla sıfırlandı!","color":"white"}]
-tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Yeniden başlatmak için ","color":"gray"},{"text":"/reload","color":"green","clickEvent":{"action":"suggest_command","value":"/reload"}},{"text":" kullanın.","color":"gray"}]
+tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Yeniden başlatmak için ","color":"gray"},{"text":"/reload","color":"green","click_event":{"action":"suggest_command","command":"/reload"}},{"text":" kullanın.","color":"gray"}]
 tellraw @s ""
 
 # Ses çal

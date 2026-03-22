@@ -1,3 +1,4 @@
+tag @s remove gcs_vanished
 effect clear @s invisibility
 effect clear @s night_vision
 gamemode survival @s

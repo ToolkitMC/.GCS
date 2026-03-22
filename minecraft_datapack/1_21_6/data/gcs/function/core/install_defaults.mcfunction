@@ -62,6 +62,6 @@ data modify storage gcs:db handlers append value {hid:19,name:"nether",label:"Ne
 
 # Metadata güncelle
 execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
-data modify storage gcs:db metadata.last_update set value "System Install"
+data modify storage gcs:db metadata.last_update set value "System Install v3.0.1"
 
 tellraw @a [{"text":"[GCS] ","color":"gold"},{"text":"19 varsayılan handler yüklendi. Limit: 50.","color":"green"}]

@@ -1,4 +1,6 @@
 tag @s remove gcs_vanished
 effect clear @s invisibility
-team leave @s
-tellraw @s [{"text":"[👁] ","color":"white","bold":true},{"text":"Vanish kapatıldı.","color":"white"}]
+effect clear @s night_vision
+gamemode survival @s
+title @s actionbar [{"text":"👁 Vanish ","color":"white","bold":true},{"text":"KAPANDI","color":"yellow"}]
+tellraw @s [{"text":"[👁] ","color":"white","bold":true},{"text":"Vanish modu kapandı.","color":"gray"}]

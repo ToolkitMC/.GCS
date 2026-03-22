@@ -1,3 +1,4 @@
+function gcs:backup/create_backup
 # UYARI: Bu fonksiyon tüm GCS verilerini siler!
 
 tellraw @s [{"text":"[!!!] ","color":"dark_red","bold":true},{"text":"SİSTEM SIFIRLANIYOR...","color":"red","bold":true}]
@@ -16,6 +17,7 @@ scoreboard objectives remove gcs.aura
 # Storage'ı temizle
 data remove storage gcs:db metadata
 data remove storage gcs:db handlers
+data remove storage gcs:db toggle_states
 data remove storage gcs:temp metadata
 
 tellraw @s ""

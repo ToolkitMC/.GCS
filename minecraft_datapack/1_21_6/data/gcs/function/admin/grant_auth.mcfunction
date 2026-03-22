@@ -6,10 +6,12 @@
 # Oyuncu kontrolü
 $execute unless entity @p[name=$(player),limit=1] run return 0
 
+function gcs:backup/create_backup
 # Yetki kontrolü
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Admin (Seviye 3)","color":"red","bold":true},{"text":" yetkisi gereklidir!","color":"red"}]
 execute unless score @s gcs.auth matches 3.. run return 0
 
+function gcs:backup/create_backup
 # Oyuncuya yetki ver
 $scoreboard players set @a[name="$(player)"] gcs.auth $(level)
 

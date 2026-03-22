@@ -8,6 +8,7 @@ execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","col
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
 execute unless score @s gcs.auth matches 3.. run return 0
 
+function gcs:backup/create_backup
 # Mevcut handler sayısını al
 execute store result score #current gcs.count run data get storage gcs:db handlers
 

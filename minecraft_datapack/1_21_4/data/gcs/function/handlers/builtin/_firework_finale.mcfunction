@@ -2,8 +2,8 @@
 # En büyük patlama!
 
 # Tüm oyuncular için mega patlama
-execute as @a at @s run particle minecraft:firework ~ ~8 ~ 5 3 5 0.5 300 force
-execute as @a at @s run particle minecraft:flash ~ ~8 ~ 0 0 0 0 8 force
+execute as @a at @s run particle minecraft:end_rod ~ ~8 ~ 5 3 5 0.5 300 force
+execute as @a at @s run particle minecraft:explosion ~ ~8 ~ 0 0 0 0 8 force
 execute as @a at @s run particle minecraft:sonic_boom ~ ~7 ~ 0 0 0 0 2 force
 execute as @a at @s run particle minecraft:explosion_emitter ~ ~7 ~ 2 1 2 0 3 force
 

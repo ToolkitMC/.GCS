@@ -2,8 +2,8 @@
 # Schedule ile çağrılır
 
 # Tüm oyuncular için efekt
-execute as @a at @s run particle minecraft:firework ~ ~6 ~ 4 2 4 0.4 150 force
-execute as @a at @s run particle minecraft:flash ~ ~7 ~ 0 0 0 0 3 force
+execute as @a at @s run particle minecraft:end_rod ~ ~6 ~ 4 2 4 0.4 150 force
+execute as @a at @s run particle minecraft:explosion ~ ~7 ~ 0 0 0 0 3 force
 execute as @a at @s run particle minecraft:totem_of_undying ~ ~5 ~ 2 3 2 0.3 80 force
 
 # Ses
