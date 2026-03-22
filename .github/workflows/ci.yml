@@ -1,0 +1,31 @@
+name: CI — Lint & Validate
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main, dev]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  validate:
+    name: Validate mcfunction & JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate datapack
+        run: python scripts/validate.py
+
+      - name: Validate all JSONs
+        run: |
+          find minecraft_datapack -name "*.json" | while read f; do
+            python -c "import json,sys; json.load(open('$f'))" \
+              || (echo "BROKEN: $f" && exit 1)
+          done
