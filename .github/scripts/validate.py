@@ -6,7 +6,7 @@ Yükleme anında patlayan hataları CI'da yakalar.
 
 import os, re, sys, json
 
-ROOT = os.path.join(os.path.dirname(__file__), "..", "minecraft_datapack")
+ROOT = os.path.join(os.path.dirname(__file__), "..", "..", "minecraft_datapack")
 errors = []
 
 def err(path, line_no, msg):
