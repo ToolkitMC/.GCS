@@ -3,7 +3,7 @@
 # gcs.temp kullanır, scoreboard.dat şişirmez
 # ═══════════════════════════════════════════════════
 
-execute store result score #fly gcs.temp run data get entity @s abilities.mayfly 1
+$execute store result score #t_$(id) gcs.temp run data get entity @s abilities.mayfly 1
 
 # ───────────────────────────────────────────────────
 # OFF → ON
