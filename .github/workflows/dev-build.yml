@@ -1,36 +1,35 @@
-name: Dev Build — Artifact
+name: Release — Build ZIP
 
 on:
   push:
-    branches: [dev]
+    tags:
+      - "v*.*.*"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
-  dev-zip:
-    name: Build & upload dev artifact
+  build:
+    name: Build release ZIP
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Validate
-        run: python .github/scripts/validate.py
+      - name: Validate (release blocker)
+        run: python3 .github/scripts/validate.py
 
       - name: Build ZIP
         run: |
+          VERSION=${GITHUB_REF_NAME}
           cd minecraft_datapack
-          zip -r ../GCS_dev.zip . \
+          zip -r ../GCS_${VERSION}.zip . \
             --exclude "*.DS_Store" --exclude "__MACOSX/*"
-          echo "Boyut: $(du -sh ../GCS_dev.zip | cut -f1)"
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "Boyut: $(du -sh ../GCS_${VERSION}.zip | cut -f1)"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: GCS-dev-${{ github.sha }}
-          path: GCS_dev.zip
-          retention-days: 7
+          name: GCS-${{ env.VERSION }}
+          path: GCS_${{ env.VERSION }}.zip
+          retention-days: 90
