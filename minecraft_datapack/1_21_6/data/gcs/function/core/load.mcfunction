@@ -9,18 +9,24 @@ scoreboard objectives add gcs.aura dummy {"text":"Partikül Aura","color":"light
 scoreboard objectives add gcs.aura.timer dummy {"text":"Aura Timer","color":"dark_purple"}
 scoreboard objectives add gcs.temp dummy {"text":"Geçici Değişken","color":"dark_gray"}
 
-scoreboard players set #max gcs.count 19
+scoreboard players set #max gcs.count 50
 scoreboard players set #min gcs.count 13
 
 execute unless data storage gcs:db handlers run function gcs:core/install_defaults
 execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {last_update:"",maintenance:0b,total_executions:0}
 execute unless data storage gcs:db recent run data modify storage gcs:db recent set value []
-data modify storage gcs:temp metadata.version set value "1.0.6"
+execute unless data storage gcs:db waypoints run data modify storage gcs:db waypoints set value []
+execute unless data storage gcs:cooldowns cooldowns run data modify storage gcs:cooldowns cooldowns set value []
+execute unless data storage gcs:waypoints points run data modify storage gcs:waypoints points set value []
+scoreboard objectives add gcs.back.x dummy
+scoreboard objectives add gcs.back.y dummy
+scoreboard objectives add gcs.back.z dummy
+data modify storage gcs:temp metadata.version set value "2.1.0"
 
 tellraw @a ""
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
 tellraw @a [{"text":" "},{"text":"GCS v","color":"yellow","bold":true},{"nbt":"metadata.version","storage":"gcs:temp","color":"white"},{"text":" yüklendi!","color":"white"}]
-tellraw @a [{"text":"  ","color":"gray"},{"text":"🛡️ Yetki Kontrollü | 🔍 Gelişmiş Arama","color":"aqua"}]
+tellraw @a [{"text":"  ","color":"gray"},{"text":"🛡️ Yetki | 🔗 Çoklu Komut | 📍 Waypoint | ↩ Back","color":"aqua"}]
 tellraw @a [{"text":"  ","color":"gray"},{"text":"MIT License","color":"dark_gray"}]
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
 tellraw @a ""

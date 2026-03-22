@@ -5,14 +5,14 @@
 tellraw @s [{"text":"[🎆] ","color":"light_purple","bold":true},{"text":"HAVAİ FİŞEK GÖSTERİSİ ","color":"gold","bold":true},{"text":"BAŞLIYOR!","color":"yellow"}]
 
 # Ana patlama efekti
-particle minecraft:firework ~ ~5 ~ 3 3 3 0.3 200 force
-particle minecraft:flash ~ ~5 ~ 2 2 2 0 5 force
+particle minecraft:end_rod ~ ~5 ~ 3 3 3 0.3 200 force
+particle minecraft:explosion ~ ~5 ~ 2 2 2 0 5 force
 
 # Çoklu renkli patlamalar
-particle minecraft:firework ~ ~6 ~3 1 1 1 0.2 50 force
-particle minecraft:firework ~3 ~7 ~ 1 1 1 0.2 50 force
-particle minecraft:firework ~ ~8 ~-3 1 1 1 0.2 50 force
-particle minecraft:firework ~-3 ~6 ~ 1 1 1 0.2 50 force
+particle minecraft:end_rod ~ ~6 ~3 1 1 1 0.2 50 force
+particle minecraft:end_rod ~3 ~7 ~ 1 1 1 0.2 50 force
+particle minecraft:end_rod ~ ~8 ~-3 1 1 1 0.2 50 force
+particle minecraft:end_rod ~-3 ~6 ~ 1 1 1 0.2 50 force
 
 # Işıltılı efektler
 particle minecraft:end_rod ~ ~5 ~ 2 3 2 0.3 100 force

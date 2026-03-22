@@ -39,12 +39,12 @@
     },
     {
       "label": {
-        "text": "➕ Handler Ekle",
+        "text": "➕ Tek Komut Ekle",
         "color": "green",
         "bold": true
       },
       "tooltip": {
-        "text": "Gerekli: Admin (Lv3)",
+        "text": "Tek komutlu handler ekle\nGerekli: Admin (Lv3)",
         "color": "gray"
       },
       "action": {
@@ -95,6 +95,21 @@
       "action": {
         "type": "minecraft:run_command",
         "command": "function gcs:ui/show {ui:\"gcs:admin/edit_handler_form\"}"
+      }
+    },
+    {
+      "label": {
+        "text": "➕ Çoklu Komut Ekle",
+        "color": "dark_green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Birden fazla komut içeren handler\nGerekli: Admin (Lv3)",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function gcs:ui/show {ui:\"gcs:admin/add_multi_handler_form\"}"
       }
     },
     {

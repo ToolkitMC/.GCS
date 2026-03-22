@@ -39,8 +39,8 @@ execute if score @s gcs.effect matches 7 run particle minecraft:soul ~ ~0.1 ~ 0.
 execute if score @s gcs.effect matches 7 run particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.2 0.3 0.2 0.01 5 force
 
 # Achievement Efekti - Altın patlama
-execute if score @s gcs.effect matches 8 run particle minecraft:firework ~ ~1.5 ~ 0.5 0.5 0.5 0.2 30 force
-execute if score @s gcs.effect matches 8 run particle minecraft:flash ~ ~1 ~ 0 0 0 1 1 force
+execute if score @s gcs.effect matches 8 run particle minecraft:end_rod ~ ~1.5 ~ 0.5 0.5 0.5 0.2 30 force
+execute if score @s gcs.effect matches 8 run particle minecraft:explosion ~ ~1 ~ 0 0 0 0 1 force
 execute if score @s gcs.effect matches 8 run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1
 
 # Reset efekt skoru

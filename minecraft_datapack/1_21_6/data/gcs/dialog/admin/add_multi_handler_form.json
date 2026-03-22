@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {"text": "➕ Çoklu Komut Ekle", "color": "dark_green", "bold": true},
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": {"text": "Çoklu komutlu handler'lar komut satırından eklenir:\n\n/function gcs:admin/add_multi_handler {name:\"isim\",label:\"Ad\",description:\"Açık\",auth_level:2,category:\"utility\",commands:[\"komut1\",\"komut2\",\"komut3\"]}\n\ncommands alanı sınırsız NBT string listesi — dilediğin kadar komut ekle.", "color": "gray"}
+  },
+  "columns": 1,
+  "button_width": 200,
+  "exit_action": {
+    "label": {"text": "◀ Geri", "color": "gray"},
+    "action": {"type": "minecraft:run_command", "command": "function gcs:ui/show {ui:\"gcs:admin/main_menu\"}"}
+  },
+  "actions": [
+    {
+      "label": {"text": "📋 Komutu Kopyala", "color": "aqua", "bold": true},
+      "action": {
+        "type": "minecraft:copy_to_clipboard",
+        "value": "/function gcs:admin/add_multi_handler {name:\"isim\",label:\"Ad\",description:\"Açıklama\",auth_level:2,category:\"utility\",commands:[\"komut1\",\"komut2\",\"komut3\"]}"
+      }
+    }
+  ]
+}

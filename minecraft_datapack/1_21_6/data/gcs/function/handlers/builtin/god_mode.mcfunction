@@ -12,7 +12,7 @@ execute unless score #has_godmode gcs.temp matches 1.. run effect give @s absorp
 execute unless score #has_godmode gcs.temp matches 1.. run tellraw @s [{"text":"[🛡] ","color":"gold","bold":true},{"text":"TANRİ MODU ","color":"yellow","bold":true},{"text":"AKTİF","color":"green","bold":true}]
 execute unless score #has_godmode gcs.temp matches 1.. run particle minecraft:totem_of_undying ~ ~1 ~ 0.5 1 0.5 0.3 100 force
 execute unless score #has_godmode gcs.temp matches 1.. run particle minecraft:enchanted_hit ~ ~1 ~ 1 1 1 0.5 50 force
-execute unless score #has_godmode gcs.temp matches 1.. run particle minecraft:firework ~ ~0.5 ~ 0.5 0.5 0.5 0.2 30 force
+execute unless score #has_godmode gcs.temp matches 1.. run particle minecraft:end_rod ~ ~0.5 ~ 0.5 0.5 0.5 0.2 30 force
 execute unless score #has_godmode gcs.temp matches 1.. run playsound minecraft:item.totem.use master @s ~ ~ ~ 1.0 1.0
 execute unless score #has_godmode gcs.temp matches 1.. run playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 0.7 0.5
 execute unless score #has_godmode gcs.temp matches 1.. run title @s actionbar [{"text":"⚡ ","color":"gold"},{"text":"ÖLÜMSÜZSÜN","color":"yellow","bold":true},{"text":" ⚡","color":"gold"}]

@@ -7,7 +7,7 @@
       "min_inclusive": 48,
       "max_inclusive": 94
     },
-    "description": "Global Command System v1.0.2-Enhanced\n🛡️ Yetki Kontrolü | 🔍 Gelişmiş Arama | Max 19 Handlers"
+    "description": "Global Command System v2.1.0\n🛡️ Yetki | 🔗 Çoklu Komut | 📍 Waypoint | ↩ Back | Max 50"
   },
   "overlays": {
     "entries": [

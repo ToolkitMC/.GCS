@@ -13,7 +13,7 @@ execute if score @s gcs.aura.timer matches 11..15 run particle minecraft:end_rod
 execute if score @s gcs.aura.timer matches 16..20 run particle minecraft:soul_fire_flame ~ ~0.8 ~ 0.5 0.5 0.5 0.01 2 force
 
 # Yükseliş efekti - zaman zaman
-execute if score @s gcs.aura.timer matches 1 run particle minecraft:firework ~ ~0.5 ~ 0.3 0.3 0.3 0.05 5 force
+execute if score @s gcs.aura.timer matches 1 run particle minecraft:end_rod ~ ~0.5 ~ 0.3 0.3 0.3 0.05 5 force
 
 # Yavaş dönüş partikül efekti
 execute if score @s gcs.aura.timer matches 10 run particle minecraft:portal ~ ~1 ~ 0.5 0.5 0.5 0.5 10 force

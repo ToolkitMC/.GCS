@@ -10,8 +10,8 @@ tellraw @s [{"text":"[☀] ","color":"yellow","bold":true},{"text":"Hava TAM AÇ
 # Güneş ışığı efektleri
 particle minecraft:glow ~ ~2 ~ 3 2 3 0.1 200 force
 particle minecraft:end_rod ~ ~3 ~ 2 1 2 0.2 100 force
-particle minecraft:firework ~ ~1.5 ~ 1 1 1 0.3 50 force
-particle minecraft:flash ~ ~2 ~ 0 0 0 0 3 force
+particle minecraft:end_rod ~ ~1.5 ~ 1 1 1 0.3 50 force
+particle minecraft:glow_squid_ink ~ ~2 ~ 0.5 0.5 0.5 0 5 force
 
 # Ses efektleri
 playsound minecraft:block.beacon.activate master @a ~ ~ ~ 1.0 1.5

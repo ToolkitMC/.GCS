@@ -12,7 +12,7 @@ execute unless score @s gcs.auth matches 3.. run return 0
 execute store result score #current gcs.count run data get storage gcs:db handlers
 
 # Limit kontrolü
-execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler limiti doldu! (19/19)","color":"red"}]
+execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler limiti doldu! (50/50)","color":"red"}]
 execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"gold"},{"text":"Önce mevcut bir handler'ı silin.","color":"yellow"}]
 execute if score #current gcs.count >= #max gcs.count run return fail
 
@@ -25,7 +25,11 @@ execute store result storage gcs:temp new_hid int 1 run scoreboard players get #
 $data modify storage gcs:db handlers append value {hid:0,name:"$(name)",label:"$(label)",description:"$(description)",auth_level:$(auth_level),enabled:1b,category:"$(category)",command:"$(command)"}
 
 # Son eklenen handler'ın hid'ini güncelle
-execute store result storage gcs:db handlers[-1].hid int 1 run scoreboard players get #new_hid gcs.hid
+# hid güncelle — pozitif index (append sonrası uzunluk - 1)
+execute store result score #last_idx gcs.count run data get storage gcs:db handlers
+scoreboard players remove #last_idx gcs.count 1
+execute store result storage gcs:temp last_idx int 1 run scoreboard players get #last_idx gcs.count
+function gcs:admin/_set_last_hid with storage gcs:temp
 
 # Metadata güncelle
 execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
@@ -45,5 +49,5 @@ tellraw @s ""
 execute store result score #slots gcs.count run scoreboard players get #max gcs.count
 execute store result score #current gcs.count run data get storage gcs:db handlers
 scoreboard players operation #slots gcs.count -= #current gcs.count
-tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Kalan Slot: ","color":"gray"},{"score":{"name":"#slots","objective":"gcs.count"},"color":"yellow"},{"text":"/19","color":"dark_gray"}]
+tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Kalan Slot: ","color":"gray"},{"score":{"name":"#slots","objective":"gcs.count"},"color":"yellow"},{"text":"/50","color":"dark_gray"}]
 tellraw @s ""

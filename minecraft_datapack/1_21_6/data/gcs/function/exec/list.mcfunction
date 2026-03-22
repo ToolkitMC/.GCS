@@ -1,6 +1,6 @@
 execute unless score @s gcs.auth matches 1.. run return fail
 
-$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"⚡ ","color":"yellow"},{"text":"$(category)","color":"yellow","bold":true}],body:{type:"minecraft:plain_message",contents:"Çalıştırmak istediğin komutu seç:"},can_close_with_escape:1b,pause:0b,columns:2,exit_action:{label:"◀ Geri",action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"📂 ","color":"gold"},{"text":"$(category)","color":"gold","bold":true}],body:{type:"minecraft:plain_message",contents:{"text":"Çalıştırmak istediğin komutu seç:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Geri","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
 
 $function gcs:exec/_try_add {idx:0,category:"$(category)"}
 $function gcs:exec/_try_add {idx:1,category:"$(category)"}
@@ -21,5 +21,38 @@ $function gcs:exec/_try_add {idx:15,category:"$(category)"}
 $function gcs:exec/_try_add {idx:16,category:"$(category)"}
 $function gcs:exec/_try_add {idx:17,category:"$(category)"}
 $function gcs:exec/_try_add {idx:18,category:"$(category)"}
+$function gcs:exec/_try_add {idx:19,category:"$(category)"}
+$function gcs:exec/_try_add {idx:20,category:"$(category)"}
+$function gcs:exec/_try_add {idx:21,category:"$(category)"}
+$function gcs:exec/_try_add {idx:22,category:"$(category)"}
+$function gcs:exec/_try_add {idx:23,category:"$(category)"}
+$function gcs:exec/_try_add {idx:24,category:"$(category)"}
+$function gcs:exec/_try_add {idx:25,category:"$(category)"}
+$function gcs:exec/_try_add {idx:26,category:"$(category)"}
+$function gcs:exec/_try_add {idx:27,category:"$(category)"}
+$function gcs:exec/_try_add {idx:28,category:"$(category)"}
+$function gcs:exec/_try_add {idx:29,category:"$(category)"}
+$function gcs:exec/_try_add {idx:30,category:"$(category)"}
+$function gcs:exec/_try_add {idx:31,category:"$(category)"}
+$function gcs:exec/_try_add {idx:32,category:"$(category)"}
+$function gcs:exec/_try_add {idx:33,category:"$(category)"}
+$function gcs:exec/_try_add {idx:34,category:"$(category)"}
+$function gcs:exec/_try_add {idx:35,category:"$(category)"}
+$function gcs:exec/_try_add {idx:36,category:"$(category)"}
+$function gcs:exec/_try_add {idx:37,category:"$(category)"}
+$function gcs:exec/_try_add {idx:38,category:"$(category)"}
+$function gcs:exec/_try_add {idx:39,category:"$(category)"}
+$function gcs:exec/_try_add {idx:40,category:"$(category)"}
+$function gcs:exec/_try_add {idx:41,category:"$(category)"}
+$function gcs:exec/_try_add {idx:42,category:"$(category)"}
+$function gcs:exec/_try_add {idx:43,category:"$(category)"}
+$function gcs:exec/_try_add {idx:44,category:"$(category)"}
+$function gcs:exec/_try_add {idx:45,category:"$(category)"}
+$function gcs:exec/_try_add {idx:46,category:"$(category)"}
+$function gcs:exec/_try_add {idx:47,category:"$(category)"}
+$function gcs:exec/_try_add {idx:48,category:"$(category)"}
+$function gcs:exec/_try_add {idx:49,category:"$(category)"}
 
 function gcs:exec/_show with storage gcs:temp
+data remove storage gcs:temp exec_dialog
+data remove storage gcs:temp exec_h
