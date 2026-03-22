@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
 
       - name: Validate
-        run: python scripts/validate.py
+        run: python .github/scripts/validate.py
 
       - name: Build ZIP
         run: |

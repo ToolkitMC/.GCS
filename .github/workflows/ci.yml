@@ -21,7 +21,7 @@ jobs:
           python-version: "3.12"
 
       - name: Validate datapack
-        run: python scripts/validate.py
+        run: python .github/scripts/validate.py
 
       - name: Validate all JSONs
         run: |
