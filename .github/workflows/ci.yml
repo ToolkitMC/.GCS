@@ -10,21 +10,15 @@ jobs:
   validate:
     name: Validate mcfunction & JSON
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
       - name: Validate datapack
-        run: python .github/scripts/validate.py
+        run: python3 .github/scripts/validate.py
 
       - name: Validate all JSONs
         run: |
           find minecraft_datapack -name "*.json" | while read f; do
-            python -c "import json,sys; json.load(open('$f'))" \
+            python3 -c "import json,sys; json.load(open('$f'))" \
               || (echo "BROKEN: $f" && exit 1)
           done
