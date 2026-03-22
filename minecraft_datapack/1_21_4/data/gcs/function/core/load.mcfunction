@@ -16,7 +16,7 @@ scoreboard objectives add gcs.back.y dummy
 scoreboard objectives add gcs.back.z dummy
 
 scoreboard players set #max gcs.count 50
-scoreboard players set #min gcs.count 13
+scoreboard players set #min gcs.count 50
 
 execute unless data storage gcs:db handlers run function gcs:core/install_defaults
 execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {last_update:"",maintenance:0b,total_executions:0}
@@ -25,7 +25,7 @@ execute unless data storage gcs:waypoints points run data modify storage gcs:way
 execute unless data storage gcs:cooldowns cooldowns run data modify storage gcs:cooldowns cooldowns set value []
 
 data modify storage gcs:db metadata.loaded set value 1b
-data modify storage gcs:temp metadata.version set value "2.1.3"
+data modify storage gcs:temp metadata.version set value "2.1.4"
 
 tellraw @a ""
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
