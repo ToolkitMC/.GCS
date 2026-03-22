@@ -4,17 +4,17 @@
 # ═══════════════════════════════════════════════════
 
 # Mevcut mayfly değerini temp'e al (0 / 1)
-execute store result score #fly gcs.temp run data get entity @s abilities.mayfly 1
+execute store result score #vanish gcs.temp run data get entity @s abilities.mayfly 1
 
 # ───────────────────────────────────────────────────
 # OFF → ON
 # ───────────────────────────────────────────────────
-execute if score #fly gcs.temp matches 0 run function gcs:handlers/builtin_extra/_vanish_on
+execute if score #vanish gcs.temp matches 0 run function gcs:handlers/builtin_extra/_vanish_on
 
 # ───────────────────────────────────────────────────
 # ON → OFF
 # ───────────────────────────────────────────────────
-execute if score #fly gcs.temp matches 1 run function gcs:handlers/builtin_extra/_vanish_off
+execute if score #vanish gcs.temp matches 1 run function gcs:handlers/builtin_extra/_vanish_off
 
 # Temizlik
-scoreboard players reset #fly gcs.temp
+scoreboard players reset #vanish gcs.temp
