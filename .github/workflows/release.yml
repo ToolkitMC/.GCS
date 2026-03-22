@@ -10,9 +10,6 @@ on:
         description: "Versiyon (örn: v2.1.2)"
         required: true
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-
 jobs:
   build:
     name: Build release ZIP
