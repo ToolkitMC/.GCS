@@ -12,7 +12,7 @@ execute unless score @s gcs.auth matches 3.. run return 0
 execute store result score #current gcs.count run data get storage gcs:db handlers
 
 # Limit kontrolü
-execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler limiti doldu! (19/19)","color":"red"}]
+execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler limiti doldu! (50/50)","color":"red"}]
 execute if score #current gcs.count >= #max gcs.count run tellraw @s [{"text":"[!] ","color":"gold"},{"text":"Önce mevcut bir handler'ı silin.","color":"yellow"}]
 execute if score #current gcs.count >= #max gcs.count run return fail
 

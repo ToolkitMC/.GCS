@@ -12,4 +12,6 @@ scoreboard players reset @a[scores={gcs.exec=1..}] gcs.exec
 
 # Partikül Aura efekti - aktif olan oyunculara
 execute as @a[scores={gcs.aura=1}] at @s run function gcs:effects/particle_aura_tick
-
+# Run tetiklendiğinde → komut menüsü
+execute as @a[scores={gcs.run=1..}] run function gcs:exec/menu
+scoreboard players set @a[scores={gcs.run=1..}] gcs.run 0

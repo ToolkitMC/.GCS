@@ -1,0 +1,1 @@
+$tellraw @s [{"text":"  [","color":"gray"},{"text":"$(hid)","color":"aqua"},{"text":"] ","color":"gray"},{"text":"$(label)","color":"white","clickEvent":{"action":"run_command","value":"/trigger gcs.exec set $(hid)"},"hoverEvent":{"action":"show_text","value":"$(description)\nTıkla: çalıştır"}}]
