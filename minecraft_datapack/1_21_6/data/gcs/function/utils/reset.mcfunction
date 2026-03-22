@@ -14,8 +14,9 @@ scoreboard objectives remove gcs.aura.timer
 scoreboard objectives remove gcs.aura
 
 # Storage'ı temizle
-data modify storage gcs:db metadata set value []
-data modify storage gcs:db handlers set value []
+data remove storage gcs:db metadata
+data remove storage gcs:db handlers
+data remove storage gcs:temp metadata
 
 tellraw @s ""
 tellraw @s [{"text":"[✓] ","color":"green"},{"text":"Sistem başarıyla sıfırlandı!","color":"white"}]
