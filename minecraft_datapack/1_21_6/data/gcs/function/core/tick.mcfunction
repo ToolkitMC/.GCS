@@ -1,3 +1,7 @@
+execute unless entity @a run return 0
+
+execute if data storage gcs:db {metadata:{loaded:0b}} run return 0
+
 # Trigger'ları etkinleştir
 scoreboard players enable @a[scores={gcs.auth=1..}] gcs.ui
 scoreboard players enable @a[scores={gcs.auth=1..}] gcs.exec

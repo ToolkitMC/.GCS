@@ -19,7 +19,7 @@ data modify storage gcs:db handlers set value []
 
 tellraw @s ""
 tellraw @s [{"text":"[✓] ","color":"green"},{"text":"Sistem başarıyla sıfırlandı!","color":"white"}]
-tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Yeniden başlatmak için ","color":"gray"},{"text":"/reload","color":"green","clickEvent":{"action":"suggest_command","value":"/reload"}},{"text":" kullanın.","color":"gray"}]
+tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Yeniden başlatmak için ","color":"gray"},{"text":"/reload","color":"green","click_event":{"action":"suggest_command","command":"/reload"}},{"text":" kullanın.","color":"gray"}]
 tellraw @s ""
 
 # Ses çal

@@ -1,3 +1,6 @@
+execute if data storage gcs:db {metadata:{loaded:1b}} run tellraw @s [{"text":"[GCS] ","color":"gold"},{"text":"Zaten yüklü.","color":"gray"}]
+execute if data storage gcs:db {metadata:{loaded:1b}} run return 0
+
 scoreboard objectives add gcs.ui trigger {"text":"GCS Ana Menü","color":"gold"}
 scoreboard objectives add gcs.exec trigger {"text":"Handler Çalıştır","color":"yellow"}
 scoreboard objectives add gcs.auth dummy {"text":"Yetki Seviyesi","color":"aqua"}
@@ -14,6 +17,8 @@ scoreboard players set #min gcs.count 13
 execute unless data storage gcs:db handlers run function gcs:core/install_defaults
 execute unless data storage gcs:db metadata run data modify storage gcs:db metadata set value {last_update:"",maintenance:0b,total_executions:0}
 data modify storage gcs:temp metadata.version set value "1.0.6"
+
+data modify storage gcs:db metadata.loaded set value 1b
 
 tellraw @a ""
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}

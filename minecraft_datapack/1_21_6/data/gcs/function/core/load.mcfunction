@@ -1,3 +1,6 @@
+execute if data storage gcs:db {metadata:{loaded:1b}} run tellraw @s [{"text":"[GCS] ","color":"gold"},{"text":"Zaten yüklü.","color":"gray"}]
+execute if data storage gcs:db {metadata:{loaded:1b}} run return 0
+
 scoreboard objectives add gcs.ui trigger {"text":"GCS Ana Menü","color":"gold"}
 scoreboard objectives add gcs.exec trigger {"text":"Handler Çalıştır","color":"yellow"}
 scoreboard objectives add gcs.run trigger {"text":"Komut Çalıştır","color":"yellow"}
@@ -22,6 +25,9 @@ scoreboard objectives add gcs.back.x dummy
 scoreboard objectives add gcs.back.y dummy
 scoreboard objectives add gcs.back.z dummy
 data modify storage gcs:temp metadata.version set value "2.1.0"
+
+
+data modify storage gcs:db metadata.loaded set value 1b
 
 tellraw @a ""
 tellraw @a {"text":"════════════════════════════════","color":"gold","bold":true}
