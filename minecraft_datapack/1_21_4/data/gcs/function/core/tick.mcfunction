@@ -26,3 +26,7 @@ scoreboard players set @a[scores={gcs.undo=1..}] gcs.undo 0
 
 # Partikül Aura efekti
 execute as @a[scores={gcs.aura=1}] at @s run function gcs:effects/particle_aura_tick
+
+# Freeze: her tick donuk oyuncuyu yerinde tut + adventure modda kilitle
+execute as @a[tag=gcs_frozen] at @s run tp @s @s
+execute as @a[tag=gcs_frozen] run gamemode adventure @s
