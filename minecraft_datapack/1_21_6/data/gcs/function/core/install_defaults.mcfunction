@@ -63,10 +63,10 @@ data modify storage gcs:db handlers append value {hid:19,name:"nether",label:"Ne
 # ── YENİ HANDLER'LAR (20–25) ─────────────────────────────────────────────────
 
 # Handler 20: Freeze — oyuncuyu dondur/çöz
-data modify storage gcs:db handlers append value {hid:20,name:"freeze",label:"Oyuncu Dondur",description:"Hedef oyuncuyu hareket edemez hale getirir / serbest bırakır",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/freeze {target:\"$(player)\"}"}
+data modify storage gcs:db handlers append value {hid:20,name:"freeze",label:"Freeze Toggle",description:"Hareketi dondurur veya serbest birakir (kendi ustune)",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/freeze_self"}
 
 # Handler 21: Smite — yıldırım
-data modify storage gcs:db handlers append value {hid:21,name:"smite",label:"Yıldırım Çak",description:"Hedef oyuncuya yıldırım düşürür",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/smite {target:\"$(player)\"}"}
+data modify storage gcs:db handlers append value {hid:21,name:"smite",label:"Yildirim Cak",description:"Kendine yildirim dusuruir",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/smite_self"}
 
 # Handler 22: Give XP — 10 seviye ver
 data modify storage gcs:db handlers append value {hid:22,name:"give_xp",label:"XP Ver (10 Seviye)",description:"Kendine 10 seviye XP ekler",auth_level:2,enabled:1b,category:"utility",command:"function gcs:handlers/builtin_extra/give_xp {amount:10}"}
