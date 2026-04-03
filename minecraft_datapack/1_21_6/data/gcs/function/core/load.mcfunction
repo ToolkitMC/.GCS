@@ -25,7 +25,7 @@ execute unless data storage gcs:waypoints points run data modify storage gcs:way
 scoreboard objectives add gcs.back.x dummy
 scoreboard objectives add gcs.back.y dummy
 scoreboard objectives add gcs.back.z dummy
-data modify storage gcs:temp metadata.version set value "3.0.1"
+data modify storage gcs:temp metadata.version set value "3.1.0"
 
 
 data modify storage gcs:db metadata.loaded set value 1b

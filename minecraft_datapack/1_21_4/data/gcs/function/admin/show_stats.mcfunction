@@ -3,7 +3,7 @@ execute store result score #current gcs.count run data get storage gcs:db handle
 
 # İstatistikleri göster
 tellraw @s [{"text":"📊 ","color":"yellow"},{"text":"Sistem Durumu","color":"gold","bold":true}]
-tellraw @s [{"text":"  ├─ ","color":"dark_gray"},{"text":"Handler Sayısı: ","color":"gray"},{"score":{"name":"#current","objective":"gcs.count"},"color":"aqua"},{"text":"/","color":"dark_gray"},{"text":"19","color":"green"}]
+tellraw @s [{"text":"  ├─ ","color":"dark_gray"},{"text":"Handler Sayısı: ","color":"gray"},{"score":{"name":"#current","objective":"gcs.count"},"color":"aqua"},{"text":"/","color":"dark_gray"},{"text":"25","color":"green"}]
 
 # Slot durumu
 execute store result score #slots gcs.count run scoreboard players get #max gcs.count

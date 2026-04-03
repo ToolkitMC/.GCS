@@ -1,3 +1,5 @@
+# Varsayılan handler'ları ekle (13 tane - minimum)
+
 # Handler 1: Yardım
 data modify storage gcs:db handlers append value {hid:1,name:"help",label:"Yardım Menüsü",description:"Tüm komutları listeler",auth_level:1,enabled:1b,category:"utility",command:"function gcs:handlers/builtin/help"}
 
@@ -23,24 +25,27 @@ data modify storage gcs:db handlers append value {hid:7,name:"toggle_weather",la
 data modify storage gcs:db handlers append value {hid:8,name:"day",label:"Gündüz Yap",description:"Zamanı gündüze çevirir",auth_level:2,enabled:1b,category:"world",command:"time set day"}
 
 # Handler 9: Spawn TP
-data modify storage gcs:db handlers append value {hid:9,name:"spawn",label:"Spawn'a Işınlan",description:"Dünya spawn noktasına ışınlanma",auth_level:1,enabled:1b,category:"teleport",command:"tp @s @e[type=marker,tag=spawn_point,limit=1]"}
+data modify storage gcs:db handlers append value {hid:9,name:"spawn",label:"Spawn'a ışınlan",description:"Dünya spawn noktasına ışınlanma",auth_level:1,enabled:1b,category:"teleport",command:"tp @s @e[type=marker,tag=spawn_point,limit=1]"}
 
 # Handler 10: Item Temizle
 data modify storage gcs:db handlers append value {hid:10,name:"clear_items",label:"Item Temizle",description:"Yerdeki itemleri temizler",auth_level:3,enabled:1b,category:"admin",command:"kill @e[type=item,distance=..100]"}
 
 # Handler 11: God Mode
-data modify storage gcs:db handlers append value {hid:11,name:"god",label:"God Mode",description:"Ölümsüzlük modunu aç/kapat",auth_level:3,enabled:1b,category:"ability",command:"function gcs:handlers/builtin/god_mode"}
+data modify storage gcs:db handlers append value {hid:11,name:"god",label:"God Mode",description:"Ölümsüzlük modu",auth_level:3,enabled:1b,category:"ability",command:"effect give @s resistance 999999 4 true"}
 
 # Handler 12: Speed
-data modify storage gcs:db handlers append value {hid:12,name:"speed",label:"Hız Arttır",description:"Hareket hızını arttırır",auth_level:2,enabled:1b,category:"ability",command:"function gcs:handlers/builtin/speed_boost"}
+data modify storage gcs:db handlers append value {hid:12,name:"speed",label:"Hız Arttır",description:"Hareket hızını arttırır",auth_level:2,enabled:1b,category:"ability",command:"effect give @s speed 300 2"}
 
-# Handler 13: Gamemode Creative
-data modify storage gcs:db handlers append value {hid:13,name:"gm",label:"Gamemode Creative",description:"Creative moda geç",auth_level:3,enabled:1b,category:"admin",command:"gamemode creative @s"}
+# Handler 13: Gamemode
+data modify storage gcs:db handlers append value {hid:13,name:"gm",label:"Gamemode Değiştir",description:"Oyun modunu değiştirir",auth_level:3,enabled:1b,category:"admin",command:"gamemode creative @s"}
+
+
+# ── YENİ HANDLER'LAR (14–19) ─────────────────────────────────────────────────
 
 # Handler 14: Süper Şifa (çoklu komut)
 data modify storage gcs:db handlers append value {hid:14,name:"super_heal",label:"Süper Şifa",description:"Tam iyileşme + tüm debuffları temizle + buff paketi",auth_level:1,enabled:1b,category:"utility",commands:["effect give @s minecraft:instant_health 1 10 true","effect give @s minecraft:regeneration 15 3 false","effect give @s minecraft:saturation 1 10 true","effect give @s minecraft:absorption 120 3 false","effect give @s minecraft:resistance 30 0 false","effect clear @s poison","effect clear @s wither","effect clear @s hunger","effect clear @s weakness","effect clear @s nausea","particle minecraft:totem_of_undying ~ ~1 ~ 0.3 0.8 0.3 0.2 50 force","playsound minecraft:item.totem.use master @s ~ ~ ~ 0.8 1.2"]}
 
-# Handler 15: Back
+# Handler 15: Back — önceki konuma dön
 data modify storage gcs:db handlers append value {hid:15,name:"back",label:"Geri Dön",description:"Son TP öncesi konuma dön",auth_level:1,enabled:1b,category:"teleport",command:"function gcs:back/go"}
 
 # Handler 16: Vanish
@@ -55,8 +60,28 @@ data modify storage gcs:db handlers append value {hid:18,name:"kit",label:"Başl
 # Handler 19: Nether Warp (çoklu komut)
 data modify storage gcs:db handlers append value {hid:19,name:"nether",label:"Nether'a Git",description:"Konumu kaydedip Nether'a ışınla",auth_level:2,enabled:1b,category:"teleport",commands:["function gcs:back/save","execute in minecraft:the_nether run tp @s 0 64 0","playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 1 0.8"]}
 
-# Metadata
-execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
-data modify storage gcs:db metadata.last_update set value "System Install v3.0.1"
+# ── YENİ HANDLER'LAR (20–25) ─────────────────────────────────────────────────
 
-tellraw @a [{"text":"[GCS] ","color":"gold"},{"text":"19 varsayılan handler yüklendi. Limit: 50.","color":"green"}]
+# Handler 20: Freeze — oyuncuyu dondur/çöz
+data modify storage gcs:db handlers append value {hid:20,name:"freeze",label:"Oyuncu Dondur",description:"Hedef oyuncuyu hareket edemez hale getirir / serbest bırakır",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/freeze {target:\"$(player)\"}"}
+
+# Handler 21: Smite — yıldırım
+data modify storage gcs:db handlers append value {hid:21,name:"smite",label:"Yıldırım Çak",description:"Hedef oyuncuya yıldırım düşürür",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/smite {target:\"$(player)\"}"}
+
+# Handler 22: Give XP — 10 seviye ver
+data modify storage gcs:db handlers append value {hid:22,name:"give_xp",label:"XP Ver (10 Seviye)",description:"Kendine 10 seviye XP ekler",auth_level:2,enabled:1b,category:"utility",command:"function gcs:handlers/builtin_extra/give_xp {amount:10}"}
+
+# Handler 23: Rastgele TP
+data modify storage gcs:db handlers append value {hid:23,name:"random_tp",label:"Rastgele Işınlan",description:"Overworld'de rastgele bir konuma ışınlanır",auth_level:1,enabled:1b,category:"teleport",command:"function gcs:handlers/builtin_extra/random_tp"}
+
+# Handler 24: Zaman Dondur
+data modify storage gcs:db handlers append value {hid:24,name:"time_freeze",label:"Zaman Dondur",description:"Gün döngüsünü dondurur veya devam ettirir",auth_level:3,enabled:1b,category:"world",command:"function gcs:handlers/builtin_extra/time_freeze"}
+
+# Handler 25: Madenci Kiti
+data modify storage gcs:db handlers append value {hid:25,name:"kit_miner",label:"Madenci Kiti",description:"Efficiency V elmas kazıcı araçları ve malzemeleri verir",auth_level:2,enabled:1b,category:"utility",command:"function gcs:handlers/builtin_extra/kit_miner"}
+
+# Metadata güncelle
+execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
+data modify storage gcs:db metadata.last_update set value "System Install v3.1.0"
+
+tellraw @a [{"text":"[GCS] ","color":"gold"},{"text":"25 varsayılan handler yüklendi. Limit: 50.","color":"green"}]

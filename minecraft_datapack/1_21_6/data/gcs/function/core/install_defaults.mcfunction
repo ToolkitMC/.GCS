@@ -60,8 +60,28 @@ data modify storage gcs:db handlers append value {hid:18,name:"kit",label:"Başl
 # Handler 19: Nether Warp (çoklu komut)
 data modify storage gcs:db handlers append value {hid:19,name:"nether",label:"Nether'a Git",description:"Konumu kaydedip Nether'a ışınla",auth_level:2,enabled:1b,category:"teleport",commands:["function gcs:back/save","execute in minecraft:the_nether run tp @s 0 64 0","playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 1 0.8"]}
 
+# ── YENİ HANDLER'LAR (20–25) ─────────────────────────────────────────────────
+
+# Handler 20: Freeze — oyuncuyu dondur/çöz
+data modify storage gcs:db handlers append value {hid:20,name:"freeze",label:"Oyuncu Dondur",description:"Hedef oyuncuyu hareket edemez hale getirir / serbest bırakır",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/freeze {target:\"$(player)\"}"}
+
+# Handler 21: Smite — yıldırım
+data modify storage gcs:db handlers append value {hid:21,name:"smite",label:"Yıldırım Çak",description:"Hedef oyuncuya yıldırım düşürür",auth_level:3,enabled:1b,category:"admin",command:"function gcs:handlers/builtin_extra/smite {target:\"$(player)\"}"}
+
+# Handler 22: Give XP — 10 seviye ver
+data modify storage gcs:db handlers append value {hid:22,name:"give_xp",label:"XP Ver (10 Seviye)",description:"Kendine 10 seviye XP ekler",auth_level:2,enabled:1b,category:"utility",command:"function gcs:handlers/builtin_extra/give_xp {amount:10}"}
+
+# Handler 23: Rastgele TP
+data modify storage gcs:db handlers append value {hid:23,name:"random_tp",label:"Rastgele Işınlan",description:"Overworld'de rastgele bir konuma ışınlanır",auth_level:1,enabled:1b,category:"teleport",command:"function gcs:handlers/builtin_extra/random_tp"}
+
+# Handler 24: Zaman Dondur
+data modify storage gcs:db handlers append value {hid:24,name:"time_freeze",label:"Zaman Dondur",description:"Gün döngüsünü dondurur veya devam ettirir",auth_level:3,enabled:1b,category:"world",command:"function gcs:handlers/builtin_extra/time_freeze"}
+
+# Handler 25: Madenci Kiti
+data modify storage gcs:db handlers append value {hid:25,name:"kit_miner",label:"Madenci Kiti",description:"Efficiency V elmas kazıcı araçları ve malzemeleri verir",auth_level:2,enabled:1b,category:"utility",command:"function gcs:handlers/builtin_extra/kit_miner"}
+
 # Metadata güncelle
 execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
-data modify storage gcs:db metadata.last_update set value "System Install v3.0.1"
+data modify storage gcs:db metadata.last_update set value "System Install v3.1.0"
 
-tellraw @a [{"text":"[GCS] ","color":"gold"},{"text":"19 varsayılan handler yüklendi. Limit: 50.","color":"green"}]
+tellraw @a [{"text":"[GCS] ","color":"gold"},{"text":"25 varsayılan handler yüklendi. Limit: 50.","color":"green"}]
