@@ -1,3 +1,6 @@
+# AME (Advanced Macro Engine) varlik kontrolu
+execute unless data storage macro:engine {global:{loaded:1b}} run tellraw @a [{"text":"[GCS] ","color":"gold","bold":true},{"text":"WARNING: ","color":"red"},{"text":"Advanced Macro Engine (AME) not loaded! Install AME for full functionality.","color":"yellow"}]
+
 execute if data storage gcs:db {metadata:{loaded:1b}} run tellraw @s [{"text":"[GCS] ","color":"gold"},{"text":"Zaten yüklü.","color":"gray"}]
 execute if data storage gcs:db {metadata:{loaded:1b}} run return 0
 

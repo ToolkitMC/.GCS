@@ -1,3 +1,5 @@
+# Blocked by cooldown — show remaining time via AME
 scoreboard players set #cd_ok gcs.count 0
-execute store result score #cd_left gcs.count run data get storage gcs:temp cd_entry.ticks
-tellraw @s [{"text":"[⏱] ","color":"red","bold":true},{"text":"Cooldown! ","color":"red"},{"score":{"name":"#cd_left","objective":"gcs.count"},"color":"yellow"},{"text":" tick bekleyin.","color":"gray"}]
+# AME cooldown/remaining -> macro:output result (ticks remaining)
+# macro:input player + key zaten set edilmis olmali — caller set eder
+tellraw @s [{"text":"[Cooldown] ","color":"red","bold":true},{"text":"Handler on cooldown. Try again later.","color":"yellow"}]
