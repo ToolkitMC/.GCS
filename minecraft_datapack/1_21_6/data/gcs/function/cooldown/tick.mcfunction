@@ -1,3 +1,3 @@
-# Cooldown tick — AME (macro:engine) tarafından yönetiliyor
-# GCS'nin scoreboard-based tick sistemi AME ile değiştirildi
+# Cooldown tick — managed by AME (macro:engine)
+# GCS scoreboard-based tick system replaced by AME
 # AME epoch-based system: cooldowns expire automatically — no tick needed here

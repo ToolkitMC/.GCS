@@ -1,5 +1,7 @@
 execute unless score @s gcs.auth matches 1.. run return fail
-$tellraw @s [{"text":"══ Arama: ","color":"aqua"},{"text":"$(query)","color":"yellow","bold":true},{"text":" ══","color":"aqua"}]
+
+$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"🔍 Search: ","color":"aqua","bold":true},{"text":"$(query)","color":"yellow"}],body:{type:"minecraft:plain_message",contents:{"text":"Matching commands:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Back","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+
 $function gcs:exec/_try_add_search {idx:0,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:1,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:2,query:"$(query)"}
@@ -50,4 +52,7 @@ $function gcs:exec/_try_add_search {idx:46,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:47,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:48,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:49,query:"$(query)"}
-tellraw @s ""
+
+function gcs:exec/_show with storage gcs:temp
+data remove storage gcs:temp exec_dialog
+data remove storage gcs:temp exec_h

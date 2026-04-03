@@ -1,2 +1,2 @@
-# Boş cmd slotları _step tarafından zaten atlanır — bu fonksiyon artık no-op.
-# Negatif index (commands[-1]) 1.21.4+'da desteklenmediğinden kaldırıldı.
+# Empty cmd slots are already skipped by _step — this function is now a no-op.
+# Removed because negative index (commands[-1]) is not supported in 1.21.4+.

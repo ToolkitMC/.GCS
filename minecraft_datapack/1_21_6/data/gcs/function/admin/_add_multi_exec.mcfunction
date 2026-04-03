@@ -1,1 +1,1 @@
-# Kullanılmıyor, add_multi_handler ile birleştirildi
+# Unused, merged into add_multi_handler

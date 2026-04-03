@@ -1,11 +1,11 @@
 # Handler ID'yi al
 scoreboard players operation #handler_id gcs.hid = @s gcs.exec
 
-# Bakım modu kontrolü
-execute if data storage gcs:db metadata{maintenance:1b} run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Sistem bakım modunda!","color":"red"}]
+# Maintenance mode check
+execute if data storage gcs:db metadata{maintenance:1b} run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Sistem in maintenance mode!","color":"red"}]
 execute if data storage gcs:db metadata{maintenance:1b} run return fail
 
-# Handler'ı çalıştır - ID'ye göre route et
+# Execute handler — route by ID
 execute if score #handler_id gcs.hid matches 1 run function gcs:handlers/execute {hid:1}
 execute if score #handler_id gcs.hid matches 2 run function gcs:handlers/execute {hid:2}
 execute if score #handler_id gcs.hid matches 3 run function gcs:handlers/execute {hid:3}

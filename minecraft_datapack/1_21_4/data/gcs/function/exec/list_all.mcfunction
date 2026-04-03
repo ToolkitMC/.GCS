@@ -1,6 +1,7 @@
 execute unless score @s gcs.auth matches 1.. run return fail
-tellraw @s ""
-tellraw @s [{"text":"══ Tüm Komutlar ══","color":"yellow","bold":true}]
+
+data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"📋 All Commands","color":"yellow","bold":true}],body:{type:"minecraft:plain_message",contents:{"text":"Select a command to execute:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Back","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+
 function gcs:exec/_try_add_all {idx:0}
 function gcs:exec/_try_add_all {idx:1}
 function gcs:exec/_try_add_all {idx:2}
@@ -51,4 +52,7 @@ function gcs:exec/_try_add_all {idx:46}
 function gcs:exec/_try_add_all {idx:47}
 function gcs:exec/_try_add_all {idx:48}
 function gcs:exec/_try_add_all {idx:49}
-tellraw @s ""
+
+function gcs:exec/_show with storage gcs:temp
+data remove storage gcs:temp exec_dialog
+data remove storage gcs:temp exec_h

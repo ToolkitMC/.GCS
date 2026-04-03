@@ -1,4 +1,4 @@
-# Super Heal — tam iyileştirme + buff paketi
+# Super Heal — full restore + buff package
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:regeneration 15 3 false
 effect give @s minecraft:saturation 1 10 true
@@ -16,4 +16,4 @@ particle minecraft:heart ~ ~1 ~ 0.5 0.5 0.5 0.1 30 force
 particle minecraft:totem_of_undying ~ ~1 ~ 0.3 0.8 0.3 0.2 50 force
 playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1.0 1.2
 playsound minecraft:item.totem.use master @s ~ ~ ~ 0.5 1.5
-title @s actionbar [{"text":"💚 SÜPER ŞİFA ","color":"green","bold":true},{"text":"✨","color":"gold"}]
+title @s actionbar [{"text":"💚 SUPER HEAL ","color":"green","bold":true},{"text":"✨","color":"gold"}]

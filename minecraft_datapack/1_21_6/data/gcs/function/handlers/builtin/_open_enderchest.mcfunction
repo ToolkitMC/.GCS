@@ -1,5 +1,5 @@
-# Geciktirilmiş enderchest açma
-# Bu fonksiyon schedule ile çağrılır
+# Delayed enderchest opening
+# Called via schedule
 
-# Tüm oyunculara uygulanır (en son tetikleyen)
+# Applied to all players (last triggerer)
 execute as @a[scores={gcs.exec=1..}] run function gcs:handlers/builtin/_do_open_ec

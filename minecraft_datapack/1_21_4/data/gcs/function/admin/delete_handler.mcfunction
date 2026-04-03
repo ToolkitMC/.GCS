@@ -1,39 +1,39 @@
 # ============================================
-# GCS - Handler Silme
-# Yetki Seviyesi: 3 (Admin)
+# GCS - Handler Deleteme
+# Auth Level: 3 (Admin)
 # ============================================
 
-# Yetki kontrolü
-execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için ","color":"red"},{"text":"Admin (Seviye 3)","color":"red","bold":true},{"text":" yetkisi gereklidir!","color":"red"}]
+# Permission check
+execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"To use this command, ","color":"red"},{"text":"Admin (Level 3)","color":"red","bold":true},{"text":" permission is required!","color":"red"}]
 execute unless score @s gcs.auth matches 3.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Mevcut yetkiniz: ","color":"gray"},{"score":{"name":"@s","objective":"gcs.auth"},"color":"aqua"}]
 execute unless score @s gcs.auth matches 3.. run return 0
 
 function gcs:backup/create_backup
-# Mevcut handler sayısını al
+# Get current handler count
 execute store result score #current gcs.count run data get storage gcs:db handlers
 
-# Minimum kontrol (13'ün altına düşmesin)
-execute if score #current gcs.count <= #min gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Minimum handler sayısına (13) ulaşıldı!","color":"red"}]
-execute if score #current gcs.count <= #min gcs.count run tellraw @s [{"text":"[!] ","color":"gold"},{"text":"Daha fazla handler silemezsiniz.","color":"yellow"}]
+# Minimum check (do not go below 13)
+execute if score #current gcs.count <= #min gcs.count run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Minimum handler count (13) reached!","color":"red"}]
+execute if score #current gcs.count <= #min gcs.count run tellraw @s [{"text":"[!] ","color":"gold"},{"text":"Daha fazla handler deleteemezsiniz.","color":"yellow"}]
 execute if score #current gcs.count <= #min gcs.count run return fail
 
-# Handler bilgilerini al (silmeden önce)
+# Get handler info (before delete)
 $data modify storage gcs:temp deleted_handler set from storage gcs:db handlers[{hid:$(hid)}]
 
-# Var mı kontrol et
-execute unless data storage gcs:temp deleted_handler run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler bulunamadı!","color":"red"}]
+# Check if it exists
+execute unless data storage gcs:temp deleted_handler run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Handler not found!","color":"red"}]
 execute unless data storage gcs:temp deleted_handler run return fail
 
-# Handler'ı sil
+# Delete the handler
 $data remove storage gcs:db handlers[{hid:$(hid)}]
 
-# Metadata güncelle
+# Update metadata
 execute store result storage gcs:db metadata.handler_count int 1 run data get storage gcs:db handlers
 data modify storage gcs:db metadata.last_update set value "Handler Deleted"
 
-# Başarı mesajı
+# Success message
 tellraw @s ""
-tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"Handler başarıyla silindi!","color":"green"}]
+tellraw @s [{"text":"[✓] ","color":"green","bold":true},{"text":"Handler deleted successfully!","color":"green"}]
 function gcs:admin/show_deleted_info with storage gcs:temp deleted_handler
 tellraw @s ""
 

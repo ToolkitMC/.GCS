@@ -1,6 +1,6 @@
 execute unless score @s gcs.auth matches 1.. run return fail
 
-$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"🔍 Arama: ","color":"aqua","bold":true},{"text":"$(query)","color":"yellow"}],body:{type:"minecraft:plain_message",contents:{"text":"Eşleşen komutlar:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Geri","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"🔍 Search: ","color":"aqua","bold":true},{"text":"$(query)","color":"yellow"}],body:{type:"minecraft:plain_message",contents:{"text":"Matching commands:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Back","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
 
 $function gcs:exec/_try_add_search {idx:0,query:"$(query)"}
 $function gcs:exec/_try_add_search {idx:1,query:"$(query)"}

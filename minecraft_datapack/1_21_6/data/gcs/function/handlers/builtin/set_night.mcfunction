@@ -1,11 +1,11 @@
 # Set Night Handler
-# Zamanı geceye (gece yarısı) ayarlar
+# Sets time to night (midnight)
 
-# Zamanı gece yarısına ayarla (18000 tick)
+# Set time to midnight (18000 ticks)
 time set 18000
 
 # Mesaj
-tellraw @s [{"text":"[🌙] ","color":"dark_blue","bold":true},{"text":"Zaman: ","color":"blue"},{"text":"GECE YARISI","color":"dark_purple","bold":true}]
+tellraw @s [{"text":"[🌙] ","color":"dark_blue","bold":true},{"text":"Time: ","color":"blue"},{"text":"MIDNIGHT","color":"dark_purple","bold":true}]
 
 # Gece efektleri
 particle minecraft:soul ~ ~2 ~ 2 1 2 0.05 100 force
@@ -21,7 +21,7 @@ playsound minecraft:ambient.cave master @s ~ ~ ~ 0.5 1.0
 # Title
 title @s times 10 40 10
 title @s title [{"text":"🌙","color":"dark_blue"}]
-title @s subtitle [{"text":"İyi geceler...","color":"dark_purple"}]
+title @s subtitle [{"text":"Good night...","color":"dark_purple"}]
 
-# Kısa glow efekti
+# Brief glow efekti
 effect give @s glowing 2 0 true

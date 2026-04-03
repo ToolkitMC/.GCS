@@ -1,9 +1,9 @@
 function gcs:backup/create_backup
-# UYARI: Bu fonksiyon tüm GCS verilerini siler!
+# WARNING: This function deletes all GCS data!
 
-tellraw @s [{"text":"[!!!] ","color":"dark_red","bold":true},{"text":"SİSTEM SIFIRLANIYOR...","color":"red","bold":true}]
+tellraw @s [{"text":"[!!!] ","color":"dark_red","bold":true},{"text":"RESETTING SYSTEM...","color":"red","bold":true}]
 
-# Scoreboards'ları temizle
+# Clear scoreboards
 scoreboard objectives remove gcs.auth
 scoreboard objectives remove gcs.hid
 scoreboard objectives remove gcs.count
@@ -14,16 +14,16 @@ scoreboard objectives remove gcs.perf
 scoreboard objectives remove gcs.aura.timer
 scoreboard objectives remove gcs.aura
 
-# Storage'ı temizle
+# Clear storage
 data remove storage gcs:db metadata
 data remove storage gcs:db handlers
 data remove storage gcs:db toggle_states
 data remove storage gcs:temp metadata
 
 tellraw @s ""
-tellraw @s [{"text":"[✓] ","color":"green"},{"text":"Sistem başarıyla sıfırlandı!","color":"white"}]
-tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Yeniden başlatmak için ","color":"gray"},{"text":"/reload","color":"green","click_event":{"action":"suggest_command","command":"/reload"}},{"text":" kullanın.","color":"gray"}]
+tellraw @s [{"text":"[✓] ","color":"green"},{"text":"System reset successfully!","color":"white"}]
+tellraw @s [{"text":"[i] ","color":"gold"},{"text":"To restart, use ","color":"gray"},{"text":"/reload","color":"green","click_event":{"action":"suggest_command","command":"/reload"}},{"text":".","color":"gray"}]
 tellraw @s ""
 
-# Ses çal
+# Play sound
 playsound minecraft:ui.toast.challenge_complete player @s ~ ~ ~ 1 0 1

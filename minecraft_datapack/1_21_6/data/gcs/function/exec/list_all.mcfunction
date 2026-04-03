@@ -1,6 +1,6 @@
 execute unless score @s gcs.auth matches 1.. run return fail
 
-data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"📋 Tüm Komutlar","color":"yellow","bold":true}],body:{type:"minecraft:plain_message",contents:{"text":"Çalıştırmak istediğin komutu seç:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Geri","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"📋 All Commands","color":"yellow","bold":true}],body:{type:"minecraft:plain_message",contents:{"text":"Select a command to execute:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Back","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
 
 function gcs:exec/_try_add_all {idx:0}
 function gcs:exec/_try_add_all {idx:1}

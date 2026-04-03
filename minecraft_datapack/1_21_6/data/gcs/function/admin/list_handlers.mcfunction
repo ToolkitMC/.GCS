@@ -1,26 +1,26 @@
 # ============================================
-# GCS - Handler Listesi
-# Yetki Seviyesi: 1 (Tüm yetkili kullanıcılar)
+# GCS - Handler List
+# Auth Level: 1 (All authorized users)
 # ============================================
 
-# Yetki kontrolü
-execute unless score @s gcs.auth matches 1.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"Bu komutu kullanmak için yetkiniz yok!","color":"red"}]
-execute unless score @s gcs.auth matches 1.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"Bir yöneticiden yetki isteyebilirsiniz.","color":"gray"}]
+# Permission check
+execute unless score @s gcs.auth matches 1.. run tellraw @s [{"text":"[!] ","color":"red","bold":true},{"text":"To use this command, you do not have permission!","color":"red"}]
+execute unless score @s gcs.auth matches 1.. run tellraw @s [{"text":"[i] ","color":"gold"},{"text":"You can request permission from an admin.","color":"gray"}]
 execute unless score @s gcs.auth matches 1.. run return 0
 
-# Başlık
+# Header
 tellraw @s ""
 tellraw @s {"text":"═══════════════════════════════════════","color":"gold","bold":true}
-tellraw @s [{"text":"  ","color":"gold"},{"text":"HANDLER LİSTESİ","color":"yellow","bold":true}]
+tellraw @s [{"text":"  ","color":"gold"},{"text":"HANDLER LIST","color":"yellow","bold":true}]
 tellraw @s {"text":"═══════════════════════════════════════","color":"gold","bold":true}
 tellraw @s ""
 
-# İstatistikler
+# Stats
 execute store result score #total gcs.count run data get storage gcs:db handlers
 tellraw @s [{"text":"Toplam: ","color":"gray"},{"score":{"name":"#total","objective":"gcs.count"},"color":"aqua"},{"text":"/19 Handler","color":"dark_gray"}]
 tellraw @s ""
 
-# Kategorilere göre grupla
+# Group by category
 tellraw @s [{"text":"","color":"gold","bold":true},{"text":"🛠️ UTILITY"}]
 function gcs:admin/list_by_category {category:"utility"}
 

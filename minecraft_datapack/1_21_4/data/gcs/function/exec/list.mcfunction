@@ -1,5 +1,7 @@
 execute unless score @s gcs.auth matches 1.. run return fail
-$tellraw @s [{"text":"══ ","color":"yellow"},{"text":"$(category)","color":"yellow","bold":true},{"text":" ══","color":"yellow"}]
+
+$data modify storage gcs:temp exec_dialog set value {type:"minecraft:multi_action",title:[{"text":"📂 ","color":"gold"},{"text":"$(category)","color":"gold","bold":true}],body:{type:"minecraft:plain_message",contents:{"text":"Select a command to execute:","color":"gray"}},can_close_with_escape:1b,pause:0b,columns:2,button_width:150,exit_action:{label:{"text":"◀ Back","color":"gray"},action:{type:"minecraft:run_command",command:"/function gcs:exec/menu"}},actions:[]}
+
 $function gcs:exec/_try_add {idx:0,category:"$(category)"}
 $function gcs:exec/_try_add {idx:1,category:"$(category)"}
 $function gcs:exec/_try_add {idx:2,category:"$(category)"}
@@ -50,4 +52,7 @@ $function gcs:exec/_try_add {idx:46,category:"$(category)"}
 $function gcs:exec/_try_add {idx:47,category:"$(category)"}
 $function gcs:exec/_try_add {idx:48,category:"$(category)"}
 $function gcs:exec/_try_add {idx:49,category:"$(category)"}
-tellraw @s ""
+
+function gcs:exec/_show with storage gcs:temp
+data remove storage gcs:temp exec_dialog
+data remove storage gcs:temp exec_h

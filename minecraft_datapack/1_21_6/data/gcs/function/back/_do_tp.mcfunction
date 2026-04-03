@@ -5,4 +5,4 @@ function gcs:back/_exec with storage gcs:temp
 data remove storage gcs:temp backx
 data remove storage gcs:temp backy
 data remove storage gcs:temp backz
-tellraw @s [{"text":"[↩] ","color":"aqua","bold":true},{"text":"Önceki konuma döndün.","color":"white"}]
+tellraw @s [{"text":"[↩] ","color":"aqua","bold":true},{"text":"Returned to previous location.","color":"white"}]

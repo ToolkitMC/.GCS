@@ -1,6 +1,6 @@
 # Miner kit — Efficiency V diamond tools + supplies
 give @s minecraft:diamond_pickaxe[minecraft:enchantments={efficiency:5,unbreaking:3,fortune:3,mending:1}] 1
-give @s minecraft:diamond_shovel[minecraft:enchantments={efficiency:5,unbreaking:3,silk_touch:1}] 1
+give @s minecraft:diamond_shovel[minecraft:enchantments={efficiency:5,unbreaking:3,deletek_touch:1}] 1
 give @s minecraft:diamond_axe[minecraft:enchantments={efficiency:5,unbreaking:3}] 1
 give @s minecraft:torch 64
 give @s minecraft:chest 4

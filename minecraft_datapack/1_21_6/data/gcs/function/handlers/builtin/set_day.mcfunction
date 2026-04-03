@@ -1,13 +1,13 @@
 # Set Day Handler
-# Zamanı gündüze (öğlen) ayarlar
+# Sets time to daytime (noon)
 
-# Zamanı öğlene ayarla (6000 tick)
+# Set time to noon (6000 ticks)
 time set 6000
 
 # Mesaj
-tellraw @s [{"text":"[🌅] ","color":"gold","bold":true},{"text":"Zaman: ","color":"yellow"},{"text":"ÖĞLEN","color":"white","bold":true}]
+tellraw @s [{"text":"[🌅] ","color":"gold","bold":true},{"text":"Time: ","color":"yellow"},{"text":"NOON","color":"white","bold":true}]
 
-# Gün ışığı efektleri
+# Daylight effects
 particle minecraft:glow ~ ~2 ~ 2 1 2 0.1 100 force
 particle minecraft:end_rod ~ ~1 ~ 0.5 1 0.5 0.1 50 force
 particle minecraft:scrape ~ ~0.5 ~ 1 0.5 1 0 30 force
@@ -19,4 +19,4 @@ playsound minecraft:entity.allay.ambient_with_item master @s ~ ~ ~ 0.7 1.2
 # Title
 title @s times 10 40 10
 title @s title [{"text":"🌞","color":"gold"}]
-title @s subtitle [{"text":"Günaydın!","color":"yellow"}]
+title @s subtitle [{"text":"Good morning!","color":"yellow"}]

@@ -1,7 +1,7 @@
 # Firework Show - Grand Finale
-# En büyük patlama!
+# The biggest burst!
 
-# Tüm oyuncular için mega patlama
+# Mega burst for all players
 execute as @a at @s run particle minecraft:end_rod ~ ~8 ~ 5 3 5 0.5 300 force
 execute as @a at @s run particle minecraft:explosion ~ ~8 ~ 0 0 0 0 8 force
 execute as @a at @s run particle minecraft:sonic_boom ~ ~7 ~ 0 0 0 0 2 force
@@ -14,4 +14,4 @@ execute as @a at @s run playsound minecraft:entity.wither.spawn master @a ~ ~ ~ 
 execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @a ~ ~ ~ 0.3 2.0
 
 # Final mesaj
-execute as @a run tellraw @s [{"text":"🎆 ","color":"gold"},{"text":"FİNALE!","color":"light_purple","bold":true},{"text":" 🎇","color":"yellow"}]
+execute as @a run tellraw @s [{"text":"🎆 ","color":"gold"},{"text":"FINALE!","color":"light_purple","bold":true},{"text":" 🎇","color":"yellow"}]

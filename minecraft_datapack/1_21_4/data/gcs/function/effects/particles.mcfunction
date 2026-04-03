@@ -1,7 +1,7 @@
 # GCS Particle Effects
 execute store result score #eff gcs.temp run data get entity @s active_effects
 
-# 1 - Mutlu Köylü
+# 1 - Happy Villager
 execute if score @s gcs.effect matches 1 run particle minecraft:happy_villager ~ ~1 ~ 0.5 0.5 0.5 0.1 20 force
 execute if score @s gcs.effect matches 1 run particle minecraft:totem_of_undying ~ ~1 ~ 0.3 0.5 0.3 0.05 10 force
 
@@ -15,17 +15,17 @@ execute if score @s gcs.effect matches 3 run particle minecraft:heart ~ ~1.5 ~ 0
 execute if score @s gcs.effect matches 3 run particle minecraft:glow ~ ~1 ~ 0.5 1 0.5 0.05 30 force
 execute if score @s gcs.effect matches 3 run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.5 1.5
 
-# 4 - Büyü
+# 4 - Enchant
 execute if score @s gcs.effect matches 4 run particle minecraft:enchant ~ ~1 ~ 0.5 1 0.5 1 50 force
 execute if score @s gcs.effect matches 4 run particle minecraft:end_rod ~ ~1 ~ 0.3 1 0.3 0.1 20 force
 execute if score @s gcs.effect matches 4 run playsound minecraft:block.enchantment_table.use master @s ~ ~ ~ 1 1
 
-# 5 - Kızgın
+# 5 - Angry
 execute if score @s gcs.effect matches 5 run particle minecraft:angry_villager ~ ~2 ~ 0.5 0.5 0.5 0 5 force
 execute if score @s gcs.effect matches 5 run particle minecraft:smoke ~ ~1 ~ 0.3 0.5 0.3 0.05 20 force
 execute if score @s gcs.effect matches 5 run playsound minecraft:block.note_block.bass master @s ~ ~ ~ 1 0.5
 
-# 6 - Gökkuşağı (dust)
+# 6 - Rainbow (dust)
 execute if score @s gcs.effect matches 6 run particle minecraft:dust{color:[1.0f,0.0f,0.0f],scale:1.5} ~ ~2 ~ 0.5 0.5 0.5 0 3 force
 execute if score @s gcs.effect matches 6 run particle minecraft:dust{color:[1.0f,0.5f,0.0f],scale:1.5} ~ ~1.8 ~ 0.5 0.5 0.5 0 3 force
 execute if score @s gcs.effect matches 6 run particle minecraft:dust{color:[1.0f,1.0f,0.0f],scale:1.5} ~ ~1.6 ~ 0.5 0.5 0.5 0 3 force

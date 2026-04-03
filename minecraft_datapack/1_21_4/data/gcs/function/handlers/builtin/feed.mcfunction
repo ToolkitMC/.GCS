@@ -1,7 +1,7 @@
 # Advanced Feed Handler
-# Açlık ve doygunluğu tam seviyeye getirir + bonus efektler
+# Fully restores hunger and saturation + bonus effects
 
-# Açlığı doldur
+# Restore hunger
 effect give @s saturation 1 255 true
 effect give @s instant_health 1 0 true
 
@@ -10,9 +10,9 @@ effect give @s regeneration 30 1
 effect give @s absorption 60 1
 
 # Mesaj ve efektler
-tellraw @s [{"text":"[🍖] ","color":"gold","bold":true},{"text":"Tam doygunluk! ","color":"yellow"},{"text":"Sağlığın yenilendi.","color":"green"}]
+tellraw @s [{"text":"[🍖] ","color":"gold","bold":true},{"text":"Full saturation! ","color":"yellow"},{"text":"Your health has been restored.","color":"green"}]
 
-# Partikül efektleri
+# Particle effects
 particle minecraft:heart ~ ~2 ~ 0.5 0.5 0.5 0.1 10 force
 particle minecraft:happy_villager ~ ~1 ~ 0.5 1 0.5 0 20 force
 particle minecraft:glow ~ ~0.5 ~ 0.3 0.5 0.3 0.1 15 force
@@ -23,4 +23,4 @@ playsound minecraft:entity.generic.eat master @s ~ ~ ~ 0.8 1.0
 playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 0.5 1.5
 
 # Action bar bildirimi
-title @s actionbar [{"text":"💚 ","color":"green"},{"text":"Sağlık ve Doygunluk Yenilendi","color":"gold"},{"text":" 💚","color":"green"}]
+title @s actionbar [{"text":"💚 ","color":"green"},{"text":"Health and Saturation Restored","color":"gold"},{"text":" 💚","color":"green"}]

@@ -1,191 +1,223 @@
-# 🎮 Global Command System (GCS) v2.1.2
+# Global Command System (GCS) v3.2.0
 
-## 📋 Genel Bakış
+A modular, permission-gated command management system for Minecraft Java Edition.  
+Supports dialog-based UI, multi-command handlers, waypoints, back, freeze, and more.
 
-**Global Command System**, Minecraft dünyalarınız için güçlü, modüler ve güvenli bir komut yönetim sistemidir.
-Dialog tabanlı UI, çoklu komut desteği, waypoint sistemi ve back komutu ile donatılmıştır.
-
-**Desteklenen Sürümler:** Minecraft 1.21.4+ (1_21_4 overlay) ve 1.21.6+ (1_21_6 overlay)
-
-### ✨ Özellikler
-
-- ✅ **Dinamik Handler Yönetimi** — Komutları runtime'da ekle, sil, düzenle
-- ✅ **Yetkilendirme Sistemi** — 3 seviyeli güvenlik (Kullanıcı / Moderatör / Admin)
-- ✅ **Handler Limiti** — Minimum 13, Maximum 50 handler
-- ✅ **Kategori Sistemi** — Utility, Teleport, Ability, World, Admin
-- ✅ **Çoklu Komut (Multi-Command)** — Tek handler'a sınırsız komut listesi
-- ✅ **Dialog UI** — Kitap/sandık/chat yerine native dialog menüleri
-- ✅ **Waypoint Sistemi** — Konum kaydet, listele, ışınlan, sil
-- ✅ **Back Komutu** — Son TP öncesi konuma dön
-- ✅ **Bakım Modu** — Sistem bakımı için özel mod
-- ✅ **Export/Import** — Handler'ları yedekle ve aktar
+**Supported versions:** 1.20.5 – 1.21.11  
+**Pack formats:** 48 – 94
 
 ---
 
-## 📦 Kurulum
+## Dependencies
 
-### Adım 1: Datapack'i Yerleştir
-ZIP'i olduğu gibi dünya klasörüne koy:
+### Required — Advanced Macro Engine (AME)
+
+GCS v3.2.0+ requires **[Advanced Macro Engine (AME)](https://github.com/ToolkitMC/macroEngine-dp)** to be installed alongside it.
+
+AME must be loaded **before** GCS. Install it in the same world's `datapacks/` folder.
+
+| Feature | Without AME | With AME |
+|---|---|---|
+| Handler execution | Works | Works |
+| Cooldown system | Inactive | Epoch-based, accurate |
+| Execution logging | None | `macro:log/info` |
+| Event hooks | None | `gcs.handler_executed` |
+
+If AME is missing, GCS prints a warning on load and continues — but cooldowns will not function.
+
+### Installation Order
+
+1. Place AME zip in `datapacks/`
+2. Place GCS zip in `datapacks/`
+3. Run `/reload`
+
+---
+
+## Installation
+
+**Step 1 — Place both datapacks**
 ```
-saves/[Dünya_Adı]/datapacks/GCS_v2.1.2.zip
+saves/[WorldName]/datapacks/AME_v2.2.x.zip
+saves/[WorldName]/datapacks/GCS_v3.2.0.zip
 ```
 
-### Adım 2: Oyunda Yükle
+**Step 2 — Load**
 ```
 /reload
 ```
 
-### Adım 3: İlk Yetkilendirme
-OP olarak önce direkt set et, sonra grant_auth çalıştır:
+**Step 3 — Grant yourself admin**
 ```
-/scoreboard players set OyuncuAdın gcs.auth 3
-/function gcs:admin/grant_auth {player:"OyuncuAdın",level:3}
+/scoreboard players set YourName gcs.auth 3
+/function gcs:admin/grant_auth {player:"YourName",level:3}
 ```
 
-### Adım 4: Menüyü Aç
+**Step 4 — Open the menu**
 ```
 /trigger gcs.ui
 ```
 
 ---
 
-## 🎯 Kullanım
+## Usage
 
-### Menüye Erişim
 ```
-/trigger gcs.ui          # Yönetim paneli
-/trigger gcs.run         # Komut çalıştırma menüsü
-```
-
-### Handler Çalıştırma
-```
-/trigger gcs.exec set <HANDLER_ID>
+/trigger gcs.ui              # Admin panel
+/trigger gcs.run             # Command execution menu
+/trigger gcs.exec set <ID>   # Run handler by ID directly
 ```
 
 ---
 
-## 🛠️ Handler Yönetimi
+## Handler Management
 
-### ➕ Tek Komutlu Handler Ekle
-
+### Add a single-command handler
 ```
-/function gcs:admin/add_handler {name:"isim",label:"Görünen Ad",description:"Açıklama",command:"komut",auth_level:1,category:"utility"}
-```
-
-**Örnekler:**
-```
-/function gcs:admin/add_handler {name:"spawn",label:"Spawn'a Git",description:"Spawn noktasına ışınlanır",command:"tp @s 0 64 0",auth_level:1,category:"teleport"}
-```
-```
-/function gcs:admin/add_handler {name:"jump",label:"Zıplama Gücü",description:"5 dk zıplama efekti",command:"effect give @s jump_boost 300 2",auth_level:2,category:"ability"}
+/function gcs:admin/add_handler {name:"spawn",label:"Go to Spawn",description:"Teleports to world spawn",command:"tp @s 0 64 0",auth_level:1,category:"teleport"}
 ```
 
-### ➕ Çoklu Komutlu Handler Ekle
-
-`commands` alanına NBT string listesi ver — sınırsız komut:
-
+### Add a multi-command handler
 ```
-/function gcs:admin/add_multi_handler {name:"buff",label:"Süper Buff",description:"Çoklu efekt",auth_level:2,category:"ability",commands:["effect give @s speed 300 2","effect give @s jump_boost 300 2","title @s actionbar {\"text\":\"⚡ Buff!\",\"color\":\"gold\"}"]}
+/function gcs:admin/add_multi_handler {name:"buff",label:"Super Buff",description:"Speed + Jump",auth_level:2,category:"ability",commands:["effect give @s speed 300 2","effect give @s jump_boost 300 2"]}
 ```
 
-### ✏️ Handler Düzenle
+### Edit a handler
 ```
-/function gcs:admin/edit_handler {hid:5,name:"yeni",label:"Yeni Ad",description:"Açıklama",command:"say güncellendi",auth_level:2,category:"utility"}
+/function gcs:admin/edit_handler {hid:5,name:"fly2",label:"Fly v2",description:"Updated fly",command:"ability @s mayfly true",auth_level:2,category:"ability"}
 ```
 
-### ❌ Handler Sil
+### Delete a handler
 ```
 /function gcs:admin/delete_handler {hid:5}
 ```
-> ⚠️ Minimum 13 handler korunur.
+> Minimum handler count is enforced — GCS will not delete below the minimum.
 
-### 🔄 Handler Aktif/Pasif
+### Toggle active/inactive
 ```
 /function gcs:admin/toggle_handler {hid:5}
 ```
 
 ---
 
-## 📍 Waypoint Sistemi
+## Permission Levels
+
+| Level | Role | Access |
+|---|---|---|
+| 1 | User | Basic commands: heal, feed, home, back, random_tp, give_xp |
+| 2 | Moderator | World commands: time, weather, fly, kit, nether |
+| 3 | Admin | All commands + system management + freeze, smite, tpall, vanish |
 
 ```
-/function gcs:waypoint/save {name:"ev"}      # Mevcut konumu kaydet
-/function gcs:waypoint/go {name:"ev"}        # Kaydedilen konuma ışınlan
-/function gcs:waypoint/list                  # Tüm waypointleri listele
-/function gcs:waypoint/delete {name:"ev"}    # Waypoint sil
-```
-
----
-
-## ↩ Back Komutu
-
-Son TP öncesi konuma dön:
-```
-/trigger gcs.exec set 15
-```
-veya:
-```
-/function gcs:back/go
-```
-
----
-
-## 👥 Yetkilendirme
-
-| Seviye | Rol | Erişim |
-|--------|-----|--------|
-| **1** | 👤 Kullanıcı | Temel komutlar (heal, feed, home, back) |
-| **2** | ⚡ Moderatör | Dünya komutları (time, weather, fly, kit) |
-| **3** | 👑 Admin | Tüm komutlar + sistem yönetimi |
-
-```
-/function gcs:admin/grant_auth {player:"OyuncuAdı",level:1}
-/function gcs:admin/grant_auth {player:"Moderator1",level:2}
+/function gcs:admin/grant_auth {player:"PlayerName",level:1}
+/function gcs:admin/grant_auth {player:"Mod1",level:2}
 /function gcs:admin/grant_auth {player:"Admin1",level:3}
 /function gcs:admin/list_auth
 ```
 
 ---
 
-## 📝 Varsayılan Handler'lar (19 adet)
+## Default Handlers (25)
 
-| ID | İsim | Açıklama | Yetki |
-|----|------|----------|-------|
-| 1 | help | Yardım menüsü | 1 |
-| 2 | home | Eve ışınlan | 1 |
-| 3 | heal | Şifa | 1 |
-| 4 | feed | Doyur | 1 |
-| 5 | fly | Uçuş modu | 2 |
-| 6 | toggle_time | Gün/Gece değiştir | 2 |
-| 7 | toggle_weather | Hava değiştir | 2 |
-| 8 | day | Gündüz yap | 2 |
-| 9 | spawn | Spawn'a ışınlan | 1 |
-| 10 | clear_items | Yerdeki itemleri temizle | 3 |
-| 11 | god | God mode | 3 |
-| 12 | speed | Hız artır | 2 |
-| 13 | gm | Creative mod | 3 |
-| 14 | super_heal | Süper şifa — çoklu komut | 1 |
-| 15 | back | Önceki konuma dön | 1 |
-| 16 | vanish | Görünmezlik | 3 |
-| 17 | tpall | Herkesi TP | 3 |
-| 18 | kit | Başlangıç kiti — çoklu komut | 2 |
-| 19 | nether | Nether'a git — çoklu komut | 2 |
+| ID | Name | Description | Auth |
+|---|---|---|---|
+| 1 | help | List all commands | 1 |
+| 2 | home | Teleport to spawn | 1 |
+| 3 | heal | Restore health and hunger | 1 |
+| 4 | feed | Restore hunger | 1 |
+| 5 | fly | Toggle fly mode | 2 |
+| 6 | toggle_time | Toggle day/night | 2 |
+| 7 | toggle_weather | Toggle clear/rain | 2 |
+| 8 | day | Set time to day | 2 |
+| 9 | spawn | Teleport to world spawn | 1 |
+| 10 | clear_items | Remove nearby item entities | 3 |
+| 11 | god | Resistance IV (god mode) | 3 |
+| 12 | speed | Speed boost | 2 |
+| 13 | gm | Switch to creative mode | 3 |
+| 14 | super_heal | Full heal + buffs + debuff clear (multi) | 1 |
+| 15 | back | Return to pre-teleport location | 1 |
+| 16 | vanish | Toggle invisibility | 3 |
+| 17 | tpall | Teleport all players to you | 3 |
+| 18 | kit | Starter iron kit (multi) | 2 |
+| 19 | nether | Save location + teleport to Nether (multi) | 2 |
+| 20 | freeze | Freeze self toggle (adventure mode + position lock) | 3 |
+| 21 | smite | Strike self with lightning | 3 |
+| 22 | give_xp | Add 10 XP levels | 2 |
+| 23 | random_tp | Spreadplayers to random overworld location | 1 |
+| 24 | time_freeze | Toggle doDaylightCycle | 3 |
+| 25 | kit_miner | Efficiency V diamond tools kit | 2 |
 
 ---
 
-## 🔍 Arama ve İstatistikler
+## Waypoint System
+
+```
+/function gcs:waypoint/save {name:"base"}     # Save current position
+/function gcs:waypoint/go {name:"base"}       # Teleport to saved position
+/function gcs:waypoint/list                   # List all waypoints
+/function gcs:waypoint/delete {name:"base"}   # Delete a waypoint
+```
+
+---
+
+## Back Command
+
+Returns to the position saved before the last teleport.
+
+```
+/trigger gcs.exec set 15
+# or:
+/function gcs:back/go
+```
+
+Back is saved automatically when using: `random_tp`, `nether`, `waypoint/go`.
+
+---
+
+## Freeze System
+
+The freeze handler (ID 20) uses a tag-based approach:
+
+- Tag `gcs_frozen` is applied to the target.
+- Every tick: `tp @s @s` (position lock) + `gamemode adventure` (no block interaction).
+- On unfreeze: tag removed, `gamemode survival` restored.
+
+To freeze another player (requires calling the macro function directly):
+```
+/function gcs:handlers/builtin_extra/freeze {target:"PlayerName"}
+```
+
+---
+
+## AME Event Hook
+
+Other datapacks can listen to GCS handler executions via AME's event system:
+
+```mcfunction
+# In your load function:
+function macro:event/register {event:"gcs.handler_executed", func:"yourpack:on_gcs_exec"}
+```
+
+For bridge setup info:
+```
+/function gcs:ame/setup
+```
+
+---
+
+## Search and Stats
 
 ```
 /function gcs:admin/list_handlers
-/function gcs:admin/search_handler {query:"arama"}
+/function gcs:admin/search_handler {query:"heal"}
 /function gcs:admin/list_by_category
 /function gcs:admin/detailed_stats
 /function gcs:admin/show_stats
+/function gcs:performance/monitor
 ```
 
 ---
 
-## 💾 Yedekleme ve Export
+## Backup and Export
 
 ```
 /function gcs:admin/export
@@ -194,85 +226,103 @@ veya:
 /data get storage gcs:db handlers
 ```
 
-Başka dünyaya taşımak için:
+To migrate handlers to another world:
 ```
-/data modify storage gcs:db handlers set value [KOPYALADIĞIN_JSON]
+/data modify storage gcs:db handlers set value [PASTE_JSON_HERE]
 ```
 
 ---
 
-## 🔧 Bakım Modu
+## Maintenance Mode
 
-Ana menüden veya:
 ```
 /function gcs:admin/maintenance
 ```
 
----
-
-## 🐛 Sorun Giderme
-
-**Handler çalışmıyor:**
-- Yetkini kontrol et: `/scoreboard players get @s gcs.auth`
-- Handler aktif mi: `/function gcs:admin/list_handlers`
-- Bakım modu açık mı: Ana menüden kontrol et
-
-**Menü açılmıyor:**
-- `gcs.auth` ≥ 1 gerekli
-- `/reload` çalıştır
-- `/scoreboard players enable @s gcs.ui`
-
-**Yetki çalışmıyor:**
-- Oyuncu adı büyük/küçük harf duyarlıdır
-- Önce: `/scoreboard players set OyuncuAdın gcs.auth 3`
-- Sonra: `grant_auth` çalıştır
+All handler execution is blocked while maintenance mode is active.
 
 ---
 
-## 📚 Tam Komut Referansı
+## Troubleshooting
+
+**Handler not executing:**
+- Check permission: `/scoreboard players get @s gcs.auth`
+- Check handler is enabled: `/function gcs:admin/list_handlers`
+- Check maintenance mode is off
+
+**Menu not opening:**
+- `gcs.auth` score must be >= 1
+- Run `/reload`
+- Manually enable trigger: `/scoreboard players enable @s gcs.ui`
+
+**Cooldowns not working:**
+- AME must be installed and loaded before GCS
+- Verify: `/data get storage macro:engine global.loaded` — should return `1b`
+
+**Permission not applying:**
+- Player names are case-sensitive
+- Set score first: `/scoreboard players set PlayerName gcs.auth 3`
+- Then run `grant_auth`
+
+---
+
+## Full Command Reference
 
 ```
-# Yönetim
+# Admin
 /function gcs:admin/main_menu
 /function gcs:admin/add_handler {...}
 /function gcs:admin/add_multi_handler {...}
 /function gcs:admin/edit_handler {...}
 /function gcs:admin/delete_handler {...}
 /function gcs:admin/toggle_handler {...}
+/function gcs:admin/bulk_toggle
 /function gcs:admin/list_handlers
-/function gcs:admin/search_handler {...}
-/function gcs:admin/grant_auth {...}
+/function gcs:admin/search_handler {query:"..."}
+/function gcs:admin/list_by_category
+/function gcs:admin/grant_auth {player:"...",level:1}
 /function gcs:admin/list_auth
 /function gcs:admin/detailed_stats
+/function gcs:admin/show_stats
+/function gcs:admin/show_last_update
 /function gcs:admin/export
+/function gcs:admin/import_config
 /function gcs:admin/maintenance
 
-# Kullanıcı
+# User triggers
 /trigger gcs.ui
 /trigger gcs.run
 /trigger gcs.exec set <ID>
+/trigger gcs.undo
 
-# Waypoint
-/function gcs:waypoint/save {name:"isim"}
-/function gcs:waypoint/go {name:"isim"}
+# Waypoints
+/function gcs:waypoint/save {name:"..."}
+/function gcs:waypoint/go {name:"..."}
 /function gcs:waypoint/list
-/function gcs:waypoint/delete {name:"isim"}
+/function gcs:waypoint/delete {name:"..."}
 
-# Sistem
+# Back
+/function gcs:back/go
+/function gcs:back/save
+
+# System
 /function gcs:utils/reset
 /function gcs:backup/create_backup
 /function gcs:backup/restore_backup
+/function gcs:performance/monitor
+/function gcs:ame/setup
 /data get storage gcs:db
 ```
 
 ---
 
-## 📄 Lisans
+## License
 
-MIT License — Özgürce kullan, değiştir, dağıt.
+MIT License — free to use, modify, and distribute.
 
 ---
 
-**Versiyon:** 2.1.2
-**Minecraft:** 1.21.4+ / 1.21.6+
-**Pack Format:** 48–94
+**Version:** 3.2.0  
+**Minecraft:** 1.20.5 – 1.21.11  
+**Pack format:** 48 – 94  
+**Dependency:** [Advanced Macro Engine (AME)](https://github.com/ToolkitMC/macroEngine-dp)

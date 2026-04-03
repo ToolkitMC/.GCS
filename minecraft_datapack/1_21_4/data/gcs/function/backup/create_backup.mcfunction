@@ -1,4 +1,4 @@
-# Her destructive işlemden önce otomatik çağrılır
+# Called automatically before each destructive operation
 # Son 1 snapshot tutar — gcs:backup snapshot
 data modify storage gcs:backup snapshot.handlers set from storage gcs:db handlers
 data modify storage gcs:backup snapshot.metadata set from storage gcs:db metadata

@@ -1,9 +1,9 @@
-# Kullanım: /function gcs:waypoint/go {name:"evim"}
+# Usage: /function gcs:waypoint/go {name:"evim"}
 execute unless score @s gcs.auth matches 1.. run return fail
 $data modify storage gcs:temp wp set from storage gcs:waypoints points[{name:"$(name)"}]
-execute unless data storage gcs:temp wp run tellraw @s [{"text":"[!] ","color":"red"},{"text":"Waypoint bulunamadı!","color":"gray"}]
+execute unless data storage gcs:temp wp run tellraw @s [{"text":"[!] ","color":"red"},{"text":"Waypoint not found!","color":"gray"}]
 execute unless data storage gcs:temp wp run return fail
-# flat keyler — noktalı makro ismi yasak
+# Flat keys — dotted macro names are not allowed
 data modify storage gcs:temp wpx set from storage gcs:temp wp.x
 data modify storage gcs:temp wpy set from storage gcs:temp wp.y
 data modify storage gcs:temp wpz set from storage gcs:temp wp.z

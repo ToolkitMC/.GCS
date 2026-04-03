@@ -1,1 +1,1 @@
-# no-op — komut sayısı artık gösterilmiyor
+# no-op — command count is no longer displayed

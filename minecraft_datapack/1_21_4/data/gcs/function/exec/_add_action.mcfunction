@@ -1,1 +1,1 @@
-$tellraw @s [{"text":"  [","color":"gray"},{"text":"$(hid)","color":"aqua"},{"text":"] ","color":"gray"},{"text":"$(label)","color":"white","clickEvent":{"action":"run_command","value":"/trigger gcs.exec set $(hid)"},"hoverEvent":{"action":"show_text","value":"$(description)\nTıkla: çalıştır"}}]
+$data modify storage gcs:temp exec_dialog.actions append value {label:{"text":"$(label)","color":"white"},tooltip:{"text":"$(description)","color":"gray"},action:{type:"minecraft:run_command",command:"/trigger gcs.exec set $(hid)"}}

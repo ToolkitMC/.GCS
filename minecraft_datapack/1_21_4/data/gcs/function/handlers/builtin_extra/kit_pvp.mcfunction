@@ -8,6 +8,6 @@ give @s minecraft:golden_apple 8
 give @s minecraft:ender_pearl 8
 give @s minecraft:bow[minecraft:enchantments={power:5,infinity:1,unbreaking:3}] 1
 give @s minecraft:arrow 1
-title @s actionbar [{"text":"⚔ PvP Kiti Hazır!","color":"red","bold":true}]
+title @s actionbar [{"text":"⚔ PvP Kit Ready!","color":"red","bold":true}]
 playsound minecraft:item.armor.equip_diamond master @s ~ ~ ~ 1.0 1.0
-tellraw @s [{"text":"[⚔] ","color":"red","bold":true},{"text":"PvP kiti alındı!","color":"green"}]
+tellraw @s [{"text":"[⚔] ","color":"red","bold":true},{"text":"PvP kit received!","color":"green"}]

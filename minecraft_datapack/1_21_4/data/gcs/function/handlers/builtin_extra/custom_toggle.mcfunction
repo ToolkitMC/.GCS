@@ -6,10 +6,10 @@
 # off_cmd: "effect clear @s resistance"
 # ═══════════════════════════════════════════════════
 
-# toggle_states listesi yoksa oluştur
+# Create toggle_states list if not present
 execute unless data storage gcs:db toggle_states run data modify storage gcs:db toggle_states set value []
 
-# Bu hid için kayıt yoksa ekle (state=0b, OFF)
+# Add entry for this hid if not present (state=0b, OFF)
 $execute unless data storage gcs:db toggle_states[{hid:$(hid)}] run data modify storage gcs:db toggle_states append value {hid:$(hid),state:0b}
 
 # Mevcut state'i score'a al

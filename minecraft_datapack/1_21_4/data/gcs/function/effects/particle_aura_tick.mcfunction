@@ -1,8 +1,8 @@
 # Particle Aura - Tick Efekti
-# Her tick çalışır ve oyuncunun etrafında partikül gösterir
+# Runs every tick and shows particles around the player
 
-# Çoklu partikül katmanları - farklı hızlarda dönen efekt
-# Rastgele partikül çeşitleri için timer
+# Multiple particle layers — rotating effect at different speeds
+# Timer for randomized particle types
 scoreboard players add @s gcs.aura.timer 1
 execute if score @s gcs.aura.timer matches 21.. run scoreboard players set @s gcs.aura.timer 0
 
@@ -12,10 +12,10 @@ execute if score @s gcs.aura.timer matches 6..10 run particle minecraft:glow ~ ~
 execute if score @s gcs.aura.timer matches 11..15 run particle minecraft:end_rod ~ ~1.2 ~ 0.4 0.4 0.4 0.02 2 force
 execute if score @s gcs.aura.timer matches 16..20 run particle minecraft:soul_fire_flame ~ ~0.8 ~ 0.5 0.5 0.5 0.01 2 force
 
-# Yükseliş efekti - zaman zaman
+# Rising effect — occasional
 execute if score @s gcs.aura.timer matches 1 run particle minecraft:end_rod ~ ~0.5 ~ 0.3 0.3 0.3 0.05 5 force
 
-# Yavaş dönüş partikül efekti
+# Slow rotation particle effect
 execute if score @s gcs.aura.timer matches 10 run particle minecraft:portal ~ ~1 ~ 0.5 0.5 0.5 0.5 10 force
 
 # Zemin efekti - her 10 tick

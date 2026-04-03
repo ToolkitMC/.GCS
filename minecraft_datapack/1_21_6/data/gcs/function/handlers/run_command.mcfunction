@@ -1,10 +1,10 @@
-# Storage'dan komutu al ve güvenli şekilde çalıştır
+# Retrieve command from storage and execute safely
 
-# Komut çalıştırma öncesi log
-execute if score @s gcs.auth matches 3 run tellraw @s [{"text":"[DEBUG] ","color":"dark_gray"},{"text":"Komut çalıştırılıyor...","color":"gray"}]
+# Log before command execution
+execute if score @s gcs.auth matches 3 run tellraw @s [{"text":"[DEBUG] ","color":"dark_gray"},{"text":"Executing command...","color":"gray"}]
 
-# Komutu çalıştır
+# Commandu execute
 $$(command)
 
-# Başarı logu
-execute if score @s gcs.auth matches 3 run tellraw @s [{"text":"[DEBUG] ","color":"dark_gray"},{"text":"Komut başarıyla tamamlandı","color":"green"}]
+# Success log
+execute if score @s gcs.auth matches 3 run tellraw @s [{"text":"[DEBUG] ","color":"dark_gray"},{"text":"Command completed successfully","color":"green"}]

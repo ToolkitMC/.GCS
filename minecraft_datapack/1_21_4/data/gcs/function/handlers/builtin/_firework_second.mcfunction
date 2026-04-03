@@ -1,7 +1,7 @@
-# Firework Show - İkinci Patlama
-# Schedule ile çağrılır
+# Firework Show - Second Burst
+# Called via schedule
 
-# Tüm oyuncular için efekt
+# Effect for all players
 execute as @a at @s run particle minecraft:end_rod ~ ~6 ~ 4 2 4 0.4 150 force
 execute as @a at @s run particle minecraft:explosion ~ ~7 ~ 0 0 0 0 3 force
 execute as @a at @s run particle minecraft:totem_of_undying ~ ~5 ~ 2 3 2 0.3 80 force
@@ -10,5 +10,5 @@ execute as @a at @s run particle minecraft:totem_of_undying ~ ~5 ~ 2 3 2 0.3 80 
 execute as @a at @s run playsound minecraft:entity.firework_rocket.large_blast master @a ~ ~ ~ 2.0 1.2
 execute as @a at @s run playsound minecraft:entity.firework_rocket.twinkle master @a ~ ~ ~ 1.5 1.5
 
-# Üçüncü finale
+# Third finale
 schedule function gcs:handlers/builtin/_firework_finale 20t replace

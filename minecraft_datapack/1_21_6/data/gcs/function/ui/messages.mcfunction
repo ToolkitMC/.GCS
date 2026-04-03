@@ -1,22 +1,22 @@
 # ═══════════════════════════════════════════════════════════
 # GCS Enhanced Messaging System v3.0.1
-# Gelişmiş mesajlaşma, ses ve partikül efektleri
+# Advanced messaging, sound and particle effects
 # ═══════════════════════════════════════════════════════════
 
-# Başarı Mesajı - Seviye 1 (Yeşil)
+# Success Message - Level 1 (Green)
 function gcs:ui/notify/success_1
 
-# Başarı Mesajı - Seviye 2 (Altın)
+# Success Message - Level 2 (Gold)
 function gcs:ui/notify/success_2
 
-# Başarı Mesajı - Seviye 3 (Mor)
+# Success Message - Level 3 (Purple)
 function gcs:ui/notify/success_3
 
-# Hata Mesajı
+# Error Message
 function gcs:ui/notify/error
 
-# Uyarı Mesajı
+# Warning Message
 function gcs:ui/notify/warning
 
-# Bilgi Mesajı
+# Info Message
 function gcs:ui/notify/info

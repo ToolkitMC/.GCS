@@ -1,7 +1,7 @@
 # Handler bilgilerini al
 $data modify storage gcs:temp current_handler set from storage gcs:db handlers[$(current_index)]
 
-# Handler var mı kontrol et
+# Check if handler exists
 execute unless data storage gcs:temp current_handler run return 0
 
 # Handler bilgilerini sakla
@@ -13,7 +13,7 @@ data modify storage gcs:temp h_category set from storage gcs:temp current_handle
 execute store result score #auth gcs.temp run data get storage gcs:temp current_handler.auth_level
 execute store result score #enabled gcs.temp run data get storage gcs:temp current_handler.enabled
 
-# Arama kelimesinin handler'da olup olmadığını kontrol et
-# NOT: Minecraft'ta string içinde arama yapmak zor olduğu için, 
-# handler bilgilerini tellraw ile gösterip kullanıcının görmesini sağlıyoruz
+# Check if search term matches handler
+# NOTE: String search in MC storage is limited, so 
+# show handler info via tellraw for the user to filter visually
 function gcs:admin/_search_display_result with storage gcs:temp current_handler
